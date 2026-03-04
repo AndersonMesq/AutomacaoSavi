@@ -4,6 +4,8 @@ import AutomacaoSavi.Automacao.Automacao;
 import AutomacaoSavi.Planilha.Planilha;
 import org.apache.poi.ss.usermodel.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -29,7 +31,7 @@ public class AutomacaoData {
 
             case "quantidade" -> {
                 String valorQuantidade = formatter.formatCellValue(cell);
-                planilha.setQuantidade(valorQuantidade);
+                planilha.setQuantidade(Integer.parseInt(valorQuantidade));
             }
 
             case "tipoAto" -> {
@@ -38,9 +40,10 @@ public class AutomacaoData {
             }
 
             case "data" -> {
-                String valorData = formatter.formatCellValue(cell);
-                valorData = valorData.replaceAll("[^0-9]", "");
-                planilha.setData(valorData);
+                if (cell.getCellType() == CellType.NUMERIC) {
+                    LocalDate data = cell.getLocalDateTimeCellValue().toLocalDate();
+                    planilha.setData(data);
+                }
             }
 
             case "hora" -> {
@@ -55,9 +58,17 @@ public class AutomacaoData {
             }
 
             case "valor" -> {
-                String valorValor = formatter.formatCellValue(cell);
-                valorValor = valorValor.replaceAll("[^0-9]", "");
-                planilha.setValor(valorValor);
+                if (cell.getCellType() == CellType.NUMERIC) {
+                    planilha.setValor(
+                            BigDecimal.valueOf(cell.getNumericCellValue())
+                    );
+                } else {
+                    String valorTexto = formatter.formatCellValue(cell)
+                            .replace(".", "")
+                            .replace(",", ".");
+
+                    planilha.setValor(new BigDecimal(valorTexto));
+                }
             }
 
             case "OBS" -> {

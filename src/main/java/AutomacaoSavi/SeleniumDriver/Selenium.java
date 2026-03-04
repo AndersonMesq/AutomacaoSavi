@@ -41,39 +41,14 @@ public class Selenium {
         }
     }
 
-    public void selecionarCampo(WebDriver driver, int i) {
-        try {
-            switch (i) {
-                case 1 -> {
-                    WebElement campoSenha = driver.findElement(By.id("formulario:cd_senha"));
-                    campoSenha.click();
-                }
+    public void pressImput(WebDriver driver, By formId) {
+        driver.findElement(formId).click();
+    }
 
-                case 2 -> {
-                    WebElement campoQuantidade = driver.findElement(By.id("formulario:quant_procedimento"));
-                    campoQuantidade.click();
-                }
-
-                case 3 -> {
-                    WebElement campoQuantidade = driver.findElement(By.id("formulario:dataInicialInput"));
-                    campoQuantidade.click();
-                }
-
-                case 4 -> {
-                    WebElement campoQuantidade = driver.findElement(By.id("formulario:hora_atendimento"));
-                    campoQuantidade.click();
-                }
-
-                case 5 -> {
-                    WebElement campoQuantidade = driver.findElement(By.id("formulario:valor"));
-                    campoQuantidade.click();
-                }
-            }
-
-        } catch (Exception e) {
-            logger.severe("Erro ao tentar selecionar campo: " + e.getMessage());
-            logger.log(java.util.logging.Level.SEVERE, "Detalhes do erro: ", e);
-        }
+    public void writeText(WebDriver driver, By formId, String text) {
+        WebElement form = driver.findElement(formId);
+        form.clear();
+        form.sendKeys(text);
     }
 
     public void setMensagemPopUp(String mensagemPopUp) {

@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="baa4fdf7-3441-4c4d-a5f7-52bf38419d5d" name="Changes" comment="Adição de loop ao chamar o metodo que trata o popUp, criação de uma classe para ficar com os &quot;relatorios&quot;." />
+    <list default="true" id="baa4fdf7-3441-4c4d-a5f7-52bf38419d5d" name="Changes" comment="Adição de loop ao chamar o metodo que trata o popUp, criação de uma classe para ficar com os &quot;relatorios&quot;.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/Savi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverEdge/msedgedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DriverEdge/msedgedriver.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Planilha modelo.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Planilha modelo.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/AutomacaoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/AutomacaoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/Relatorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/Relatorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/AutoMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/AutoMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/Automacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/Automacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Backup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Backup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Planilha/Planilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Planilha/Planilha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/SeleniumDriver/Selenium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/SeleniumDriver/Selenium.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,30 +51,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Automacao.executor": "Run",
-    "Application.LeituraPlanilha.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainTest (1).executor": "Run",
-    "Application.MainTest.executor": "Run",
-    "Application.Test01.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Versão-0.2.0-autoSavi",
-    "ignore.virus.scanning.warn.message": "true",
-    "onboarding.tips.debug.path": "C:/Users/ander/IdeaProjects/ProjetoAutoSavi/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "terminal"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Automacao.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LeituraPlanilha.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test01.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Versão-0.2.0-autoSavi&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/ander/IdeaProjects/ProjetoAutoSavi/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />

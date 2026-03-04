@@ -3,6 +3,8 @@ package AutomacaoSavi.AutoData;
 import AutomacaoSavi.Automacao.Automacao;
 import AutomacaoSavi.Planilha.Planilha;
 
+import java.time.format.DateTimeFormatter;
+
 public class Relatorio {
 
     public static void planilhaReport(Planilha planilha) {
@@ -11,11 +13,13 @@ public class Relatorio {
         System.out.println("Quantidade foi armazenada(" + planilha.getQuantidade() + ")");
         System.out.println("Tipo do ato foi armazenado(" + planilha.getTipoAto() + ")");
         System.out.println("Numero do tipo do ato foi armazenado(" + planilha.getNumeroTipoAto() + ")");
-        System.out.println("Data foi armazenada(" + planilha.getData() + ")");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println("Data foi armazenada(" + planilha.getData().format(formatter) + ")");
         System.out.println("Hora foi armazenada(" + planilha.getHora() + ")");
         System.out.println("Via de acesso foi armazenada(" + planilha.getViaAcesso() + ")");
         System.out.println("Numero da via de acesso foi armazenado(" + planilha.getNumeroViaAcesso() + ")");
         System.out.println("Valor foi armazenado(" + planilha.getValor() + ")");
+        System.out.println("OBS armazenado: " + planilha.getObservacao());
         System.out.println("---------------------------------------------------");
     }
 
@@ -26,11 +30,13 @@ public class Relatorio {
         System.out.println("Numero de setas prestador: " + automacao.getNumeroDeSetasPres());
         System.out.println("Tipo do ato: " + planilha.getTipoAto() +
                 " || Numero de setas: " + automacao.getNumeroDeSetasAto());
-        System.out.println("Data: " + planilha.getData());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println("Data: " + planilha.getData().format(formatter));
         System.out.println("Hora: " + planilha.getHora());
         System.out.println("Via de acesso: " + planilha.getViaAcesso() +
                 " || Numero de setas: " + automacao.getNumeroDeSetasVia());
         System.out.println("Valor: " + planilha.getValor());
+        System.out.println("OBS: " + planilha.getObservacao());
         System.out.println("////////////////////////////////////////////////////");
     }
 }

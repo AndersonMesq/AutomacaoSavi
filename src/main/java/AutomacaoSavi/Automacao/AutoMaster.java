@@ -20,16 +20,18 @@ import java.util.logging.Logger;
 public class AutoMaster {
     private static final Logger logger = Logger.getLogger(AutoMaster.class.getName());
     private final Planilha planilha;
+    private final Savi savi;
     private final LeituraPlanilha leituraPlanilha;
     private final AutomacaoData automacaoData;
     private final Automacao automacao;
     private final DriverSelerium driverS;
     private final Selenium selenium;
 
-    public AutoMaster(Planilha planilha, LeituraPlanilha leituraPlanilha,
+    public AutoMaster(Planilha planilha, Savi savi, LeituraPlanilha leituraPlanilha,
                       AutomacaoData automacaoData, Automacao automacao,
                       DriverSelerium driverS, Selenium selenium) {
         this.planilha = planilha;
+        this.savi = savi;
         this.leituraPlanilha = leituraPlanilha;
         this.automacaoData = automacaoData;
         this.automacao = automacao;
@@ -79,12 +81,11 @@ public class AutoMaster {
                     }
                     automacaoData.planilhaSetters(planilha, formatter, colunaNome, cell);
                 }
-//                automacaoData.planilhaSetters(planilha, formatter, colunas, linha);
                 automacaoData.setNumeroTipoAto(planilha);
                 automacaoData.setNumeroViaAcesso(planilha);
                 Relatorio.planilhaReport(planilha);
                 automacao.delayInicial();
-                automacao.autoKeybord(planilha, driver, selenium);
+                automacao.autoKeybord(planilha, savi, driver, selenium);
                 Relatorio.autoReport(planilha, automacao);
                 leituraPlanilha.setCellMensagem(selenium, sheet, i);
                 leituraPlanilha.setCellCadastro(selenium, sheet, i);
