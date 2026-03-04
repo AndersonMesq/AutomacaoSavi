@@ -1,32 +1,19 @@
 package AutomacaoSavi.Planilha;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 public class Planilha {
     private String senha;
-    private String quantidade;
+    private int quantidade;
     private String tipoAto;
     private int numeroTipoAto;
-    private String data;
+    private LocalDate data;
     private String hora;
     private String viaAcesso;
     private int numeroViaAcesso;
-    private String valor;
+    private BigDecimal valor;
     private String observacao;
-
-    public int getNumeroTipoAto() {
-        return numeroTipoAto;
-    }
-
-    public void setNumeroTipoAto(int numeroTipoAto) {
-        this.numeroTipoAto = numeroTipoAto;
-    }
-
-    public int getNumeroViaAcesso() {
-        return numeroViaAcesso;
-    }
-
-    public void setNumeroViaAcesso(int numeroViaAcesso) {
-        this.numeroViaAcesso = numeroViaAcesso;
-    }
 
     public String getSenha() {
         return senha;
@@ -36,20 +23,12 @@ public class Planilha {
         this.senha = senha;
     }
 
-    public String getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(String quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public String getObservacao() {
-        return observacao;
-    }
-
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
     }
 
     public String getTipoAto() {
@@ -60,11 +39,19 @@ public class Planilha {
         this.tipoAto = tipoAto;
     }
 
-    public String getData() {
+    public int getNumeroTipoAto() {
+        return numeroTipoAto;
+    }
+
+    public void setNumeroTipoAto(int numeroTipoAto) {
+        this.numeroTipoAto = numeroTipoAto;
+    }
+
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
@@ -84,11 +71,27 @@ public class Planilha {
         this.viaAcesso = viaAcesso;
     }
 
-    public String getValor() {
+    public int getNumeroViaAcesso() {
+        return numeroViaAcesso;
+    }
+
+    public void setNumeroViaAcesso(int numeroViaAcesso) {
+        this.numeroViaAcesso = numeroViaAcesso;
+    }
+
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
 }
