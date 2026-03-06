@@ -11,8 +11,6 @@ import java.time.format.DateTimeFormatter;
 public class Automacao {
     private final Robot robot;
     private int numeroDeSetasPres;
-    private int numeroDeSetasAto;
-    private int numeroDeSetasVia;
 
     public Automacao(Robot robot) {
         this.robot = robot;
@@ -27,6 +25,10 @@ public class Automacao {
 
     public void shortDelay() {
         robot.delay(1000);
+    }
+
+    public void longDelay() {
+        robot.delay(2000);
     }
 
     public void delayInicial() {
@@ -47,36 +49,21 @@ public class Automacao {
         shortDelay();
         //5 - Campo tipo de ato
         //Solução temporaria para o problema do tipo do ato errado (Reset na força)
-        selenium.pressImput(driver, savi.getCampoTipoAto());
-        for (int i = 0; i < 14; i++) {
-            robot.keyPress(KeyEvent.VK_UP);
-            robot.keyRelease(KeyEvent.VK_UP);
-        }
-        this.numeroDeSetasAto = planilha.getNumeroTipoAto();
-        if (this.numeroDeSetasAto != 0) {
-            pressDown(numeroDeSetasAto);
-        } else {
-            System.out.println("Erro ao ler o tipo de ato");
-        }
-        shortDelay();
+        selenium.selectBox(driver, savi.getCampoTipoAto(), planilha.getTipoAto().getValueHtml());
         //6 - Campo data
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         selenium.writeText(driver, savi.getCampoData(), planilha.getData().format(formatter));
         //7 - Campo hora
         selenium.writeText(driver, savi.getCampoHora(), planilha.getHora());
         //8 - Campo via de acesso
-        selenium.pressImput(driver, savi.getCampoViaAcesso());
-        this.numeroDeSetasVia = planilha.getNumeroViaAcesso();
-        if (this.numeroDeSetasVia != 0) {
-            pressDown(this.numeroDeSetasVia);
-        }
+        selenium.selectBox(driver, savi.getCampoViaAcesso(), planilha.getViaAcesso().getCodigo());
         //9 - Campo valor
         selenium.writeText(driver, savi.getCampoValor(), planilha.getValor().toString());
         //10 - Campo observacao
         selenium.writeText(driver, savi.getCampoOBS(), planilha.getObservacao());
         //10 - Gravar guia
         selenium.pressImput(driver, savi.getImputGravar());
-        shortDelay();
+        longDelay();
         //11 - tratar pop-up
         int tentativas = 0;
         int limiteTentativas = 5;
@@ -97,19 +84,7 @@ public class Automacao {
         }
     }
 
-    public int getNumeroDeSetasPres() {
-        return numeroDeSetasPres;
-    }
-
     public void setNumeroDeSetasPres(int numeroDeSetasPres) {
         this.numeroDeSetasPres = numeroDeSetasPres;
-    }
-
-    public int getNumeroDeSetasAto() {
-        return numeroDeSetasAto;
-    }
-
-    public int getNumeroDeSetasVia() {
-        return numeroDeSetasVia;
     }
 }

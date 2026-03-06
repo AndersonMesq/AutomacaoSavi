@@ -6,8 +6,6 @@ import org.apache.poi.ss.usermodel.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class AutomacaoData {
@@ -36,7 +34,7 @@ public class AutomacaoData {
 
             case "tipoAto" -> {
                 String valorTipoAto = formatter.formatCellValue(cell);
-                planilha.setTipoAto(valorTipoAto);
+                planilha.setTipoAto(TipoAtoData.fromExcel(valorTipoAto));
             }
 
             case "data" -> {
@@ -54,7 +52,7 @@ public class AutomacaoData {
 
             case "viaAcesso" -> {
                 String valorViaAcesso = formatter.formatCellValue(cell);
-                planilha.setViaAcesso(valorViaAcesso);
+                planilha.setViaAcesso(ViaAcessoData.fromExcel(valorViaAcesso));
             }
 
             case "valor" -> {
@@ -76,33 +74,5 @@ public class AutomacaoData {
                 planilha.setObservacao(valorObservacoes);
             }
         }
-    }
-
-    public void setNumeroTipoAto(Planilha planilha) {
-        Map<String, Integer> tipoAtoMap = new HashMap<>();
-        tipoAtoMap.put("A.ESP", 1);
-        tipoAtoMap.put("ANEST", 2);
-        tipoAtoMap.put("ASS.RN.BER", 3);
-        tipoAtoMap.put("ASS.RN.PARTO", 4);
-        tipoAtoMap.put("AUX.ANEST", 5);
-        tipoAtoMap.put("CIR/OBST", 6);
-        tipoAtoMap.put("CONS/HON", 7);
-        tipoAtoMap.put("D.AUX", 8);
-        tipoAtoMap.put("PACOTE", 9);
-        tipoAtoMap.put("PARECER", 10);
-        tipoAtoMap.put("PERF", 11);
-        tipoAtoMap.put("1AUX", 12);
-        tipoAtoMap.put("2AUX", 13);
-        tipoAtoMap.put("3AUX", 14);
-
-        planilha.setNumeroTipoAto(tipoAtoMap.getOrDefault(planilha.getTipoAto(), 0));
-    }
-
-    public void setNumeroViaAcesso(Planilha planilha) {
-        Map<String, Integer> viaAcessoMap = new HashMap<>();
-        viaAcessoMap.put("M", 1);
-        viaAcessoMap.put("D", 2);
-
-        planilha.setNumeroViaAcesso(viaAcessoMap.getOrDefault(planilha.getViaAcesso(), 0));
     }
 }
