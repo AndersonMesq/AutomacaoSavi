@@ -1,17 +1,18 @@
 package AutomacaoSavi.Planilha;
 
+import AutomacaoSavi.AutoData.TipoAtoData;
+import AutomacaoSavi.AutoData.ViaAcessoData;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Planilha {
     private String senha;
     private int quantidade;
-    private String tipoAto;
-    private int numeroTipoAto;
+    private TipoAtoData tipoAto;
     private LocalDate data;
     private String hora;
-    private String viaAcesso;
-    private int numeroViaAcesso;
+    private ViaAcessoData viaAcesso;
     private BigDecimal valor;
     private String observacao;
 
@@ -31,20 +32,16 @@ public class Planilha {
         this.quantidade = quantidade;
     }
 
-    public String getTipoAto() {
+    public TipoAtoData getTipoAto() {
         return tipoAto;
     }
 
-    public void setTipoAto(String tipoAto) {
+    public void setTipoAto(TipoAtoData tipoAto) {
         this.tipoAto = tipoAto;
     }
 
-    public int getNumeroTipoAto() {
-        return numeroTipoAto;
-    }
-
-    public void setNumeroTipoAto(int numeroTipoAto) {
-        this.numeroTipoAto = numeroTipoAto;
+    public void setViaAcesso(ViaAcessoData viaAcesso) {
+        this.viaAcesso = viaAcesso;
     }
 
     public LocalDate getData() {
@@ -63,20 +60,8 @@ public class Planilha {
         this.hora = hora;
     }
 
-    public String getViaAcesso() {
+    public ViaAcessoData getViaAcesso() {
         return viaAcesso;
-    }
-
-    public void setViaAcesso(String viaAcesso) {
-        this.viaAcesso = viaAcesso;
-    }
-
-    public int getNumeroViaAcesso() {
-        return numeroViaAcesso;
-    }
-
-    public void setNumeroViaAcesso(int numeroViaAcesso) {
-        this.numeroViaAcesso = numeroViaAcesso;
     }
 
     public BigDecimal getValor() {

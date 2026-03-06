@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -43,6 +44,11 @@ public class Selenium {
 
     public void pressImput(WebDriver driver, By formId) {
         driver.findElement(formId).click();
+    }
+
+    public void selectBox(WebDriver driver, By formId, String value){
+        Select select = new Select(driver.findElement(formId));
+        select.selectByValue(value);
     }
 
     public void writeText(WebDriver driver, By formId, String text) {

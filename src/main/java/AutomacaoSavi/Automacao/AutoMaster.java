@@ -81,8 +81,6 @@ public class AutoMaster {
                     }
                     automacaoData.planilhaSetters(planilha, formatter, colunaNome, cell);
                 }
-                automacaoData.setNumeroTipoAto(planilha);
-                automacaoData.setNumeroViaAcesso(planilha);
                 Relatorio.planilhaReport(planilha);
                 automacao.delayInicial();
                 automacao.autoKeybord(planilha, savi, driver, selenium);
