@@ -1,18 +1,19 @@
-package AutomacaoSavi.Automacao;
+package com.andersonmesq.autosavi.automation;
 
-import AutomacaoSavi.Planilha.Planilha;
-import AutomacaoSavi.SeleniumDriver.Selenium;
+import com.andersonmesq.autosavi.pages.saviCadastro;
+import com.andersonmesq.autosavi.model.Planilha;
+import com.andersonmesq.autosavi.selenium.Selenium;
 import org.openqa.selenium.WebDriver;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.time.format.DateTimeFormatter;
 
-public class Automacao {
+public class automacao {
     private final Robot robot;
     private int numeroDeSetasPres;
 
-    public Automacao(Robot robot) {
+    public automacao(Robot robot) {
         this.robot = robot;
     }
 
@@ -35,7 +36,7 @@ public class Automacao {
         robot.delay(5000); // Delay para começar
     }
 
-    public void autoKeybord(Planilha planilha, Savi savi, WebDriver driver, Selenium selenium) {
+    public void autoKeybord(Planilha planilha, saviCadastro savi, WebDriver driver, Selenium selenium) {
         //1 - Campo senha
         selenium.writeText(driver, savi.getCampoSenha(), planilha.getSenha());
         //2 - Pesquisar senha
@@ -72,7 +73,7 @@ public class Automacao {
             tentativas++;
             System.out.println(tentativas + "° Tentativa de tratamento do popUp");
 
-            deteccao = selenium.tratarPopUp(driver);
+            deteccao = selenium.tratarPopUp(driver, savi.getPopUptext(), savi.getPopUpButton());
             if (deteccao) {
                 break;
             }

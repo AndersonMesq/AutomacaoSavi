@@ -1,4 +1,4 @@
-package AutomacaoSavi.SeleniumDriver;
+package com.andersonmesq.autosavi.selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -13,9 +13,9 @@ public class Selenium {
     private static final Logger logger = Logger.getLogger(Selenium.class.getName());
     private String mensagemPopUp;
 
-    public boolean tratarPopUp(WebDriver driver) {
+    public boolean tratarPopUp(WebDriver driver, By textPopUp, By buttonPopUp) {
         try {
-            List<WebElement> mensagens = driver.findElements(By.cssSelector("span.ui-messages-warn-summary, span.ui-messages-info-summary"));
+            List<WebElement> mensagens = driver.findElements(textPopUp);
             if (mensagens.isEmpty()) {
                 return false;
             }
@@ -29,7 +29,7 @@ public class Selenium {
                 }
             }
 
-            WebElement botaoFechar = driver.findElement(By.cssSelector("button.btn.btn-info"));
+            WebElement botaoFechar = driver.findElement(buttonPopUp);
             botaoFechar.click();
             return true;
 

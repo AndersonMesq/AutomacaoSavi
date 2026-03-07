@@ -1,15 +1,17 @@
-package AutomacaoSavi.AutoData;
+package com.andersonmesq.autosavi.data;
 
-import AutomacaoSavi.Automacao.Automacao;
-import AutomacaoSavi.Planilha.Planilha;
+import com.andersonmesq.autosavi.automation.automacao;
+import com.andersonmesq.autosavi.model.Planilha;
+import com.andersonmesq.autosavi.enums.tipoAtoData;
+import com.andersonmesq.autosavi.enums.viaAcessoData;
 import org.apache.poi.ss.usermodel.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class AutomacaoData {
-    public void prestadorDefinition(Automacao automacao) {
+public class automacaoData {
+    public void prestadorDefinition(automacao automacao) {
         //Definindo qual prestador sera escolhido
         Scanner sequenciaPrestador = new Scanner(System.in);
         System.out.println("Verifique em seu campo de cadastro de guias no Savi " +
@@ -34,7 +36,7 @@ public class AutomacaoData {
 
             case "tipoAto" -> {
                 String valorTipoAto = formatter.formatCellValue(cell);
-                planilha.setTipoAto(TipoAtoData.fromExcel(valorTipoAto));
+                planilha.setTipoAto(tipoAtoData.fromExcel(valorTipoAto));
             }
 
             case "data" -> {
@@ -52,7 +54,7 @@ public class AutomacaoData {
 
             case "viaAcesso" -> {
                 String valorViaAcesso = formatter.formatCellValue(cell);
-                planilha.setViaAcesso(ViaAcessoData.fromExcel(valorViaAcesso));
+                planilha.setViaAcesso(viaAcessoData.fromExcel(valorViaAcesso));
             }
 
             case "valor" -> {

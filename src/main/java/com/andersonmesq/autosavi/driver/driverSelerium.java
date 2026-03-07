@@ -1,10 +1,10 @@
-package AutomacaoSavi.SeleniumDriver;
+package com.andersonmesq.autosavi.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
-public class DriverSelerium {
+public class driverSelerium {
     private WebDriver driver;
 
     public void openSavi() {
