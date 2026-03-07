@@ -1,6 +1,6 @@
 package com.andersonmesq.autosavi.service;
 
-import com.andersonmesq.autosavi.selenium.Selenium;
+import com.andersonmesq.autosavi.actions.seleniumActions;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-public class LeituraPlanilha {
-    private static final Logger logger = Logger.getLogger(LeituraPlanilha.class.getName());
+public class leituraPlanilha {
+    private static final Logger logger = Logger.getLogger(leituraPlanilha.class.getName());
 
     public static String filePath() {
         return "C:\\Users\\ander\\IdeaProjects\\ProjetoAutoSavi\\Planilha modelo.xlsx";
@@ -48,12 +48,12 @@ public class LeituraPlanilha {
         }
     }
 
-    public int verificacaoCadastro(Selenium selenium) {
+    public int verificacaoCadastro(seleniumActions selenium) {
         String mensagem = selenium.getMensagemPopUp();
         return mensagem.contains("Honorário Médico processado com sucesso") ? 1 : 0;
     }
 
-    public void setCellCadastro(Selenium selenium, Sheet sheet, int i) {
+    public void setCellCadastro(seleniumActions selenium, Sheet sheet, int i) {
         Row row = sheet.getRow(i);
         if (row == null) return;
 
@@ -69,7 +69,7 @@ public class LeituraPlanilha {
         }
     }
 
-    public void setCellMensagem(Selenium selenium, Sheet sheet, int i) {
+    public void setCellMensagem(seleniumActions selenium, Sheet sheet, int i) {
         Row row = sheet.getRow(i);
         if (row == null) return;
 

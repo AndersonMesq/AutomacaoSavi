@@ -6,7 +6,7 @@ import com.andersonmesq.autosavi.enums.viaAcessoData;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Planilha {
+public class planilha {
     private String senha;
     private int quantidade;
     private tipoAtoData tipoAto;

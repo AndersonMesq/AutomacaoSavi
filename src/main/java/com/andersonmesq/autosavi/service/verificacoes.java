@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Verificacoes {
+public class verificacoes {
     public void soma(WebDriver driver){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Pressione ENTER para iniciar a extração...");

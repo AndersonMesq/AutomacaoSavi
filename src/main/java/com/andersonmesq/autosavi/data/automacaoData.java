@@ -1,7 +1,7 @@
 package com.andersonmesq.autosavi.data;
 
 import com.andersonmesq.autosavi.automation.automacao;
-import com.andersonmesq.autosavi.model.Planilha;
+import com.andersonmesq.autosavi.model.planilha;
 import com.andersonmesq.autosavi.enums.tipoAtoData;
 import com.andersonmesq.autosavi.enums.viaAcessoData;
 import org.apache.poi.ss.usermodel.*;
@@ -22,7 +22,7 @@ public class automacaoData {
         automacao.setNumeroDeSetasPres(sequenciaPrestador.nextInt());
     }
 
-    public void planilhaSetters(Planilha planilha, DataFormatter formatter, String colunaNome, Cell cell) {
+    public void planilhaSetters(planilha planilha, DataFormatter formatter, String colunaNome, Cell cell) {
         switch (colunaNome) {
             case "senha" -> {
                 String valorSenha = formatter.formatCellValue(cell);
