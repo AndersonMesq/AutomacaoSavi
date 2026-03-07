@@ -1,13 +1,13 @@
 package com.andersonmesq.autosavi;
 
 import com.andersonmesq.autosavi.data.automacaoData;
-import com.andersonmesq.autosavi.service.AutoMaster;
+import com.andersonmesq.autosavi.service.autoMaster;
 import com.andersonmesq.autosavi.automation.automacao;
 import com.andersonmesq.autosavi.pages.saviCadastro;
-import com.andersonmesq.autosavi.service.LeituraPlanilha;
-import com.andersonmesq.autosavi.model.Planilha;
+import com.andersonmesq.autosavi.service.leituraPlanilha;
+import com.andersonmesq.autosavi.model.planilha;
 import com.andersonmesq.autosavi.driver.driverSelerium;
-import com.andersonmesq.autosavi.selenium.Selenium;
+import com.andersonmesq.autosavi.actions.seleniumActions;
 
 import java.awt.*;
 
@@ -29,16 +29,16 @@ Migrar para 100% selenium
 */
 public class Main {
     public static void main(String[] args) throws AWTException {
-        Planilha planilha = new Planilha();
+        planilha planilha = new planilha();
         saviCadastro savi = new saviCadastro();
-        LeituraPlanilha leituraPlanilha = new LeituraPlanilha();
+        leituraPlanilha leituraPlanilha = new leituraPlanilha();
         automacaoData automacaoData = new automacaoData();
         Robot robot = new Robot();
         automacao automacao = new automacao(robot);
         driverSelerium driverS = new driverSelerium();
-        Selenium selenium = new Selenium();
+        seleniumActions selenium = new seleniumActions();
 
-        AutoMaster autoMaster = new AutoMaster(planilha, savi, leituraPlanilha, automacaoData, automacao, driverS, selenium);
+        autoMaster autoMaster = new autoMaster(planilha, savi, leituraPlanilha, automacaoData, automacao, driverS, selenium);
 
         autoMaster.autoStart();
     }

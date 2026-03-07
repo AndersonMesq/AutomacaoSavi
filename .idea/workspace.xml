@@ -6,21 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="baa4fdf7-3441-4c4d-a5f7-52bf38419d5d" name="Changes" comment="Adição de loop ao chamar o metodo que trata o popUp, criação de uma classe para ficar com os &quot;relatorios&quot;.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Planilha modelo.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Planilha modelo.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/AutomacaoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/data/automacaoData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/Relatorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/Relatorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/TipoAtoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/tipoAtoData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/ViaAcessoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/viaAcessoData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/AutoMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutoMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/Automacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/automacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/Savi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/pages/saviCadastro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Backup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Planilha/LeituraPlanilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/LeituraPlanilha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Planilha/Planilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/Planilha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/SeleniumDriver/DriverSelerium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/driver/driverSelerium.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/SeleniumDriver/Selenium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/selenium/Selenium.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/SeleniumDriver/Verificacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/Verificacoes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/automacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/automacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/data/automacaoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/data/automacaoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/Planilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/planilha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/selenium/Selenium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/actions/seleniumActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutoMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/autoMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/LeituraPlanilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/leituraPlanilha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/Verificacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/verificacoes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/Relatorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/relatorio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

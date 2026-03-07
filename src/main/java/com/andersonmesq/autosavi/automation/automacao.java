@@ -1,8 +1,8 @@
 package com.andersonmesq.autosavi.automation;
 
 import com.andersonmesq.autosavi.pages.saviCadastro;
-import com.andersonmesq.autosavi.model.Planilha;
-import com.andersonmesq.autosavi.selenium.Selenium;
+import com.andersonmesq.autosavi.model.planilha;
+import com.andersonmesq.autosavi.actions.seleniumActions;
 import org.openqa.selenium.WebDriver;
 
 import java.awt.*;
@@ -36,7 +36,7 @@ public class automacao {
         robot.delay(5000); // Delay para começar
     }
 
-    public void autoKeybord(Planilha planilha, saviCadastro savi, WebDriver driver, Selenium selenium) {
+    public void autoKeybord(planilha planilha, saviCadastro savi, WebDriver driver, seleniumActions selenium) {
         //1 - Campo senha
         selenium.writeText(driver, savi.getCampoSenha(), planilha.getSenha());
         //2 - Pesquisar senha

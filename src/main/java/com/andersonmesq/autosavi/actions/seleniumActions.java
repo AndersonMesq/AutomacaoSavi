@@ -1,4 +1,4 @@
-package com.andersonmesq.autosavi.selenium;
+package com.andersonmesq.autosavi.actions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class Selenium {
-    private static final Logger logger = Logger.getLogger(Selenium.class.getName());
+public class seleniumActions {
+    private static final Logger logger = Logger.getLogger(seleniumActions.class.getName());
     private String mensagemPopUp;
 
     public boolean tratarPopUp(WebDriver driver, By textPopUp, By buttonPopUp) {

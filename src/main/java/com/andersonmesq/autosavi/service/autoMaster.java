@@ -1,10 +1,10 @@
 package com.andersonmesq.autosavi.service;
 
 import com.andersonmesq.autosavi.data.automacaoData;
-import com.andersonmesq.autosavi.utils.Relatorio;
-import com.andersonmesq.autosavi.model.Planilha;
+import com.andersonmesq.autosavi.utils.relatorio;
+import com.andersonmesq.autosavi.model.planilha;
 import com.andersonmesq.autosavi.driver.driverSelerium;
-import com.andersonmesq.autosavi.selenium.Selenium;
+import com.andersonmesq.autosavi.actions.seleniumActions;
 import com.andersonmesq.autosavi.automation.automacao;
 import com.andersonmesq.autosavi.pages.saviCadastro;
 import org.apache.poi.ss.usermodel.*;
@@ -18,19 +18,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-public class AutoMaster {
-    private static final Logger logger = Logger.getLogger(AutoMaster.class.getName());
-    private final Planilha planilha;
+public class autoMaster {
+    private static final Logger logger = Logger.getLogger(autoMaster.class.getName());
+    private final planilha planilha;
     private final saviCadastro savi;
-    private final LeituraPlanilha leituraPlanilha;
+    private final leituraPlanilha leituraPlanilha;
     private final automacaoData automacaoData;
     private final automacao automacao;
     private final driverSelerium driverS;
-    private final Selenium selenium;
+    private final seleniumActions selenium;
 
-    public AutoMaster(Planilha planilha, saviCadastro savi, LeituraPlanilha leituraPlanilha,
+    public autoMaster(planilha planilha, saviCadastro savi, leituraPlanilha leituraPlanilha,
                       automacaoData automacaoData, automacao automacao,
-                      driverSelerium driverS, Selenium selenium) {
+                      driverSelerium driverS, seleniumActions selenium) {
         this.planilha = planilha;
         this.savi = savi;
         this.leituraPlanilha = leituraPlanilha;
@@ -45,7 +45,7 @@ public class AutoMaster {
         driverS.openSavi();
         WebDriver driver = driverS.getDriver();
         automacaoData.prestadorDefinition(automacao);
-        try (FileInputStream fis = new FileInputStream(LeituraPlanilha.filePath())) {
+        try (FileInputStream fis = new FileInputStream(com.andersonmesq.autosavi.service.leituraPlanilha.filePath())) {
             Workbook workbook = new XSSFWorkbook(fis);
             Sheet sheet = workbook.getSheetAt(0);
             Row primeiraLinha = sheet.getRow(0);
@@ -65,7 +65,7 @@ public class AutoMaster {
                     break;
                 }
 
-                if (LeituraPlanilha.checkCadastro(sheet, formatter, i)) {
+                if (com.andersonmesq.autosavi.service.leituraPlanilha.checkCadastro(sheet, formatter, i)) {
                     System.out.println("**************************\n" +
                             "Linha " + i + " com cadastro OK\n" +
                             "**************************"
@@ -82,15 +82,15 @@ public class AutoMaster {
                     }
                     automacaoData.planilhaSetters(planilha, formatter, colunaNome, cell);
                 }
-                Relatorio.planilhaReport(planilha);
+                relatorio.planilhaReport(planilha);
                 automacao.delayInicial();
                 automacao.autoKeybord(planilha, savi, driver, selenium);
-                Relatorio.autoReport(planilha, automacao);
+                relatorio.autoReport(planilha, automacao);
                 leituraPlanilha.setCellMensagem(selenium, sheet, i);
                 leituraPlanilha.setCellCadastro(selenium, sheet, i);
             }
 
-            try (FileOutputStream fos = new FileOutputStream(LeituraPlanilha.filePath())) {
+            try (FileOutputStream fos = new FileOutputStream(com.andersonmesq.autosavi.service.leituraPlanilha.filePath())) {
                 workbook.write(fos);
             }
 
