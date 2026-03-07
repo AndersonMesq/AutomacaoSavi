@@ -1,17 +1,17 @@
 package com.andersonmesq.autosavi.data;
 
-import com.andersonmesq.autosavi.automation.automacao;
-import com.andersonmesq.autosavi.model.planilha;
-import com.andersonmesq.autosavi.enums.tipoAtoData;
-import com.andersonmesq.autosavi.enums.viaAcessoData;
+import com.andersonmesq.autosavi.automation.Automacao;
+import com.andersonmesq.autosavi.model.Planilha;
+import com.andersonmesq.autosavi.enums.TipoAtoData;
+import com.andersonmesq.autosavi.enums.ViaAcessoData;
 import org.apache.poi.ss.usermodel.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class automacaoData {
-    public void prestadorDefinition(automacao automacao) {
+public class AutomacaoData {
+    public void prestadorDefinition(Automacao automacao) {
         //Definindo qual prestador sera escolhido
         Scanner sequenciaPrestador = new Scanner(System.in);
         System.out.println("Verifique em seu campo de cadastro de guias no Savi " +
@@ -22,7 +22,7 @@ public class automacaoData {
         automacao.setNumeroDeSetasPres(sequenciaPrestador.nextInt());
     }
 
-    public void planilhaSetters(planilha planilha, DataFormatter formatter, String colunaNome, Cell cell) {
+    public void planilhaSetters(Planilha planilha, DataFormatter formatter, String colunaNome, Cell cell) {
         switch (colunaNome) {
             case "senha" -> {
                 String valorSenha = formatter.formatCellValue(cell);
@@ -36,7 +36,7 @@ public class automacaoData {
 
             case "tipoAto" -> {
                 String valorTipoAto = formatter.formatCellValue(cell);
-                planilha.setTipoAto(tipoAtoData.fromExcel(valorTipoAto));
+                planilha.setTipoAto(TipoAtoData.fromExcel(valorTipoAto));
             }
 
             case "data" -> {
@@ -54,7 +54,7 @@ public class automacaoData {
 
             case "viaAcesso" -> {
                 String valorViaAcesso = formatter.formatCellValue(cell);
-                planilha.setViaAcesso(viaAcessoData.fromExcel(valorViaAcesso));
+                planilha.setViaAcesso(ViaAcessoData.fromExcel(valorViaAcesso));
             }
 
             case "valor" -> {

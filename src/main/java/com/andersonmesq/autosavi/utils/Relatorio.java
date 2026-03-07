@@ -1,13 +1,13 @@
 package com.andersonmesq.autosavi.utils;
 
-import com.andersonmesq.autosavi.automation.automacao;
-import com.andersonmesq.autosavi.model.planilha;
+import com.andersonmesq.autosavi.automation.Automacao;
+import com.andersonmesq.autosavi.model.Planilha;
 
 import java.time.format.DateTimeFormatter;
 
-public class relatorio {
+public class Relatorio {
 
-    public static void planilhaReport(planilha planilha) {
+    public static void planilhaReport(Planilha planilha) {
         System.out.println("---------------Relatorio da planilha---------------");
         System.out.println("Senha foi armazenada(" + planilha.getSenha() + ")");
         System.out.println("Quantidade foi armazenada(" + planilha.getQuantidade() + ")");
@@ -21,7 +21,7 @@ public class relatorio {
         System.out.println("---------------------------------------------------");
     }
 
-    public static void autoReport(planilha planilha, automacao automacao){
+    public static void autoReport(Planilha planilha, Automacao automacao){
         System.out.println("///////////////////RELATORIO AUTO///////////////////");
         System.out.println("Senha: " + planilha.getSenha());
         System.out.println("Quantidade: " + planilha.getQuantidade());

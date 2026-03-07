@@ -1,18 +1,18 @@
 package com.andersonmesq.autosavi.model;
 
-import com.andersonmesq.autosavi.enums.tipoAtoData;
-import com.andersonmesq.autosavi.enums.viaAcessoData;
+import com.andersonmesq.autosavi.enums.TipoAtoData;
+import com.andersonmesq.autosavi.enums.ViaAcessoData;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class planilha {
+public class Planilha {
     private String senha;
     private int quantidade;
-    private tipoAtoData tipoAto;
+    private TipoAtoData tipoAto;
     private LocalDate data;
     private String hora;
-    private viaAcessoData viaAcesso;
+    private ViaAcessoData viaAcesso;
     private BigDecimal valor;
     private String observacao;
 
@@ -32,15 +32,15 @@ public class planilha {
         this.quantidade = quantidade;
     }
 
-    public tipoAtoData getTipoAto() {
+    public TipoAtoData getTipoAto() {
         return tipoAto;
     }
 
-    public void setTipoAto(tipoAtoData tipoAto) {
+    public void setTipoAto(TipoAtoData tipoAto) {
         this.tipoAto = tipoAto;
     }
 
-    public void setViaAcesso(viaAcessoData viaAcesso) {
+    public void setViaAcesso(ViaAcessoData viaAcesso) {
         this.viaAcesso = viaAcesso;
     }
 
@@ -60,7 +60,7 @@ public class planilha {
         this.hora = hora;
     }
 
-    public viaAcessoData getViaAcesso() {
+    public ViaAcessoData getViaAcesso() {
         return viaAcesso;
     }
 
