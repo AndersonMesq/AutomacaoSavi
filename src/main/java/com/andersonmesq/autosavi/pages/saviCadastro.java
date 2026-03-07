@@ -1,8 +1,8 @@
-package AutomacaoSavi.Automacao;
+package com.andersonmesq.autosavi.pages;
 
 import org.openqa.selenium.By;
 
-public class Savi {
+public class saviCadastro {
     private final By campoSenha = By.id("formulario:cd_senha");
     private final By imputSenha = By.id("formulario:btnPesquisaSenha");
     private final By campoQuantidade = By.id("formulario:quant_procedimento");
@@ -14,6 +14,8 @@ public class Savi {
     private final By campoValor = By.id("formulario:valor");
     private final By campoOBS = By.name("formulario:j_idt122"); //Não é um id, é um nome
     private final By imputGravar = By.id("formulario:j_idt124");
+    private final By PopUptext = By.cssSelector("span.ui-messages-warn-summary, span.ui-messages-info-summary");
+    private final By PopUpButton = By.cssSelector("button.btn.btn-info");
 
     public By getCampoSenha() {
         return campoSenha;
@@ -57,5 +59,13 @@ public class Savi {
 
     public By getImputGravar() {
         return imputGravar;
+    }
+
+    public By getPopUptext() {
+        return PopUptext;
+    }
+
+    public By getPopUpButton() {
+        return PopUpButton;
     }
 }

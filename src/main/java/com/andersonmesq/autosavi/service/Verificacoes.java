@@ -1,4 +1,4 @@
-package AutomacaoSavi.SeleniumDriver;
+package com.andersonmesq.autosavi.service;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

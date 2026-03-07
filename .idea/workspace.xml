@@ -5,16 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa4fdf7-3441-4c4d-a5f7-52bf38419d5d" name="Changes" comment="Adição de loop ao chamar o metodo que trata o popUp, criação de uma classe para ficar com os &quot;relatorios&quot;.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/TipoAtoData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/ViaAcessoData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Planilha modelo.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Planilha modelo.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/AutomacaoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/AutomacaoData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/Relatorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/Relatorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/AutoMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/AutoMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/Automacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/Automacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Planilha/Planilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Planilha/Planilha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/SeleniumDriver/Selenium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/SeleniumDriver/Selenium.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/AutomacaoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/data/automacaoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/Relatorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/Relatorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/TipoAtoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/tipoAtoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/AutoData/ViaAcessoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/viaAcessoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/AutoMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutoMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/Automacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/automacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Automacao/Savi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/pages/saviCadastro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Backup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Planilha/LeituraPlanilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/LeituraPlanilha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/Planilha/Planilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/Planilha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/SeleniumDriver/DriverSelerium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/driver/driverSelerium.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/SeleniumDriver/Selenium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/selenium/Selenium.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AutomacaoSavi/SeleniumDriver/Verificacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/Verificacoes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +62,7 @@
     &quot;Application.MainTest (1).executor&quot;: &quot;Run&quot;,
     &quot;Application.MainTest.executor&quot;: &quot;Run&quot;,
     &quot;Application.Test01.executor&quot;: &quot;Run&quot;,
+    &quot;Application.a.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
@@ -78,25 +86,12 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="LeituraPlanilha" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AutomacaoSavi.Planilha.LeituraPlanilha" />
-      <module name="ProjetoAutoSavi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="AutomacaoSavi.Automacao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AutomacaoSavi.Main" />
+      <option name="MAIN_CLASS_NAME" value="com.andersonmesq.autosavi.Main" />
       <module name="ProjetoAutoSavi" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AutomacaoSavi.Automacao.*" />
+          <option name="PATTERN" value="com.andersonmesq.autosavi.automation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,7 +111,7 @@
       <module name="ProjetoAutoSavi" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AutomacaoSavi.Automacao.*" />
+          <option name="PATTERN" value="com.andersonmesq.autosavi.automation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -129,7 +124,20 @@
       <module name="ProjetoAutoSavi" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AutomacaoSavi.Automacao.*" />
+          <option name="PATTERN" value="com.andersonmesq.autosavi.automation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="a" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AutomacaoSavi.AutoData.a" />
+      <module name="ProjetoAutoSavi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.andersonmesq.autosavi.enums.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -140,10 +148,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.a" />
         <item itemvalue="Application.MainTest (1)" />
         <item itemvalue="Application.MainTest" />
         <item itemvalue="Application.TratamentoTest01" />
-        <item itemvalue="Application.LeituraPlanilha" />
       </list>
     </recent_temporary>
   </component>

@@ -1,7 +1,7 @@
-package AutomacaoSavi.Planilha;
+package com.andersonmesq.autosavi.model;
 
-import AutomacaoSavi.AutoData.TipoAtoData;
-import AutomacaoSavi.AutoData.ViaAcessoData;
+import com.andersonmesq.autosavi.enums.tipoAtoData;
+import com.andersonmesq.autosavi.enums.viaAcessoData;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -9,10 +9,10 @@ import java.time.LocalDate;
 public class Planilha {
     private String senha;
     private int quantidade;
-    private TipoAtoData tipoAto;
+    private tipoAtoData tipoAto;
     private LocalDate data;
     private String hora;
-    private ViaAcessoData viaAcesso;
+    private viaAcessoData viaAcesso;
     private BigDecimal valor;
     private String observacao;
 
@@ -32,15 +32,15 @@ public class Planilha {
         this.quantidade = quantidade;
     }
 
-    public TipoAtoData getTipoAto() {
+    public tipoAtoData getTipoAto() {
         return tipoAto;
     }
 
-    public void setTipoAto(TipoAtoData tipoAto) {
+    public void setTipoAto(tipoAtoData tipoAto) {
         this.tipoAto = tipoAto;
     }
 
-    public void setViaAcesso(ViaAcessoData viaAcesso) {
+    public void setViaAcesso(viaAcessoData viaAcesso) {
         this.viaAcesso = viaAcesso;
     }
 
@@ -60,7 +60,7 @@ public class Planilha {
         this.hora = hora;
     }
 
-    public ViaAcessoData getViaAcesso() {
+    public viaAcessoData getViaAcesso() {
         return viaAcesso;
     }
 

@@ -1,12 +1,12 @@
-package AutomacaoSavi.AutoData;
+package com.andersonmesq.autosavi.enums;
 
-public enum ViaAcessoData {
+public enum viaAcessoData {
     MESMA("M"),
     DIFERENTE("D");
 
     private final String codigo;
 
-    ViaAcessoData(String codigo) {
+    viaAcessoData(String codigo) {
         this.codigo = codigo;
     }
 
@@ -14,8 +14,8 @@ public enum ViaAcessoData {
         return codigo;
     }
 
-    public static ViaAcessoData fromExcel(String codigo) {
-        for (ViaAcessoData tipo : values()) {
+    public static viaAcessoData fromExcel(String codigo) {
+        for (viaAcessoData tipo : values()) {
             if (tipo.codigo.equalsIgnoreCase(codigo)) {
                 return tipo;
             }

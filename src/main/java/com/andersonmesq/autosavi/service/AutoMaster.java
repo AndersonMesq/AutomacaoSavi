@@ -1,11 +1,12 @@
-package AutomacaoSavi.Automacao;
+package com.andersonmesq.autosavi.service;
 
-import AutomacaoSavi.AutoData.AutomacaoData;
-import AutomacaoSavi.AutoData.Relatorio;
-import AutomacaoSavi.Planilha.LeituraPlanilha;
-import AutomacaoSavi.Planilha.Planilha;
-import AutomacaoSavi.SeleniumDriver.DriverSelerium;
-import AutomacaoSavi.SeleniumDriver.Selenium;
+import com.andersonmesq.autosavi.data.automacaoData;
+import com.andersonmesq.autosavi.utils.Relatorio;
+import com.andersonmesq.autosavi.model.Planilha;
+import com.andersonmesq.autosavi.driver.driverSelerium;
+import com.andersonmesq.autosavi.selenium.Selenium;
+import com.andersonmesq.autosavi.automation.automacao;
+import com.andersonmesq.autosavi.pages.saviCadastro;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
@@ -20,16 +21,16 @@ import java.util.logging.Logger;
 public class AutoMaster {
     private static final Logger logger = Logger.getLogger(AutoMaster.class.getName());
     private final Planilha planilha;
-    private final Savi savi;
+    private final saviCadastro savi;
     private final LeituraPlanilha leituraPlanilha;
-    private final AutomacaoData automacaoData;
-    private final Automacao automacao;
-    private final DriverSelerium driverS;
+    private final automacaoData automacaoData;
+    private final automacao automacao;
+    private final driverSelerium driverS;
     private final Selenium selenium;
 
-    public AutoMaster(Planilha planilha, Savi savi, LeituraPlanilha leituraPlanilha,
-                      AutomacaoData automacaoData, Automacao automacao,
-                      DriverSelerium driverS, Selenium selenium) {
+    public AutoMaster(Planilha planilha, saviCadastro savi, LeituraPlanilha leituraPlanilha,
+                      automacaoData automacaoData, automacao automacao,
+                      driverSelerium driverS, Selenium selenium) {
         this.planilha = planilha;
         this.savi = savi;
         this.leituraPlanilha = leituraPlanilha;

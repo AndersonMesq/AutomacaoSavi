@@ -1,6 +1,6 @@
-package AutomacaoSavi.AutoData;
+package com.andersonmesq.autosavi.enums;
 
-public enum TipoAtoData {
+public enum tipoAtoData {
     A_ESP("A.ESP", "13"),
     ANEST("A.ESP", "6"),
     ASS_RN_BER("ASS.RN.BER", "10"),
@@ -19,7 +19,7 @@ public enum TipoAtoData {
     private final String codigoExcel;
     private final String valueHtml;
 
-    TipoAtoData(String codigoExcel, String valueHtml) {
+    tipoAtoData(String codigoExcel, String valueHtml) {
         this.codigoExcel = codigoExcel;
         this.valueHtml = valueHtml;
     }
@@ -28,8 +28,8 @@ public enum TipoAtoData {
         return valueHtml;
     }
 
-    public static TipoAtoData fromExcel(String codigo) {
-        for (TipoAtoData tipo : values()) {
+    public static tipoAtoData fromExcel(String codigo) {
+        for (tipoAtoData tipo : values()) {
             if (tipo.codigoExcel.equalsIgnoreCase(codigo)) {
                 return tipo;
             }

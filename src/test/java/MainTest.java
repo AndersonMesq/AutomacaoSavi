@@ -1,12 +1,11 @@
-import AutomacaoSavi.AutoData.AutomacaoData;
-import AutomacaoSavi.Automacao.AutoMaster;
-import AutomacaoSavi.Automacao.Automacao;
-import AutomacaoSavi.Automacao.Savi;
-import AutomacaoSavi.Planilha.LeituraPlanilha;
-import AutomacaoSavi.Planilha.Planilha;
-import AutomacaoSavi.SeleniumDriver.DriverSelerium;
-import AutomacaoSavi.SeleniumDriver.Selenium;
-import org.openqa.selenium.WebDriver;
+import com.andersonmesq.autosavi.data.automacaoData;
+import com.andersonmesq.autosavi.service.AutoMaster;
+import com.andersonmesq.autosavi.automation.automacao;
+import com.andersonmesq.autosavi.pages.saviCadastro;
+import com.andersonmesq.autosavi.service.LeituraPlanilha;
+import com.andersonmesq.autosavi.model.Planilha;
+import com.andersonmesq.autosavi.driver.driverSelerium;
+import com.andersonmesq.autosavi.selenium.Selenium;
 
 import java.awt.*;
 
@@ -15,12 +14,12 @@ import java.awt.*;
 public class MainTest {
     public static void main(String[] args) throws AWTException {
         Planilha planilha = new Planilha();
-        Savi savi = new Savi();
+        saviCadastro savi = new saviCadastro();
         LeituraPlanilha leituraPlanilha = new LeituraPlanilha();
-        AutomacaoData automacaoData = new AutomacaoData();
+        automacaoData automacaoData = new automacaoData();
         Robot robot = new Robot();
-        Automacao automacao = new Automacao(robot);
-        DriverSelerium driverS = new DriverSelerium();
+        automacao automacao = new automacao(robot);
+        driverSelerium driverS = new driverSelerium();
         Selenium selenium = new Selenium();
 
         AutoMaster autoMaster = new AutoMaster(planilha, savi, leituraPlanilha, automacaoData, automacao, driverS, selenium);
