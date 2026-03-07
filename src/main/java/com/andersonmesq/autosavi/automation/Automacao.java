@@ -1,19 +1,19 @@
 package com.andersonmesq.autosavi.automation;
 
-import com.andersonmesq.autosavi.pages.saviCadastro;
-import com.andersonmesq.autosavi.model.planilha;
-import com.andersonmesq.autosavi.actions.seleniumActions;
+import com.andersonmesq.autosavi.pages.SaviCadastro;
+import com.andersonmesq.autosavi.model.Planilha;
+import com.andersonmesq.autosavi.actions.SeleniumActions;
 import org.openqa.selenium.WebDriver;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.time.format.DateTimeFormatter;
 
-public class automacao {
+public class Automacao {
     private final Robot robot;
     private int numeroDeSetasPres;
 
-    public automacao(Robot robot) {
+    public Automacao(Robot robot) {
         this.robot = robot;
     }
 
@@ -36,7 +36,7 @@ public class automacao {
         robot.delay(5000); // Delay para começar
     }
 
-    public void autoKeybord(planilha planilha, saviCadastro savi, WebDriver driver, seleniumActions selenium) {
+    public void autoKeybord(Planilha planilha, SaviCadastro savi, WebDriver driver, SeleniumActions selenium) {
         //1 - Campo senha
         selenium.writeText(driver, savi.getCampoSenha(), planilha.getSenha());
         //2 - Pesquisar senha

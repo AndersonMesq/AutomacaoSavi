@@ -1,13 +1,13 @@
 package com.andersonmesq.autosavi;
 
-import com.andersonmesq.autosavi.data.automacaoData;
-import com.andersonmesq.autosavi.service.autoMaster;
-import com.andersonmesq.autosavi.automation.automacao;
-import com.andersonmesq.autosavi.pages.saviCadastro;
-import com.andersonmesq.autosavi.service.leituraPlanilha;
-import com.andersonmesq.autosavi.model.planilha;
-import com.andersonmesq.autosavi.driver.driverSelerium;
-import com.andersonmesq.autosavi.actions.seleniumActions;
+import com.andersonmesq.autosavi.data.AutomacaoData;
+import com.andersonmesq.autosavi.service.AutoMaster;
+import com.andersonmesq.autosavi.automation.Automacao;
+import com.andersonmesq.autosavi.pages.SaviCadastro;
+import com.andersonmesq.autosavi.service.LeituraPlanilha;
+import com.andersonmesq.autosavi.model.Planilha;
+import com.andersonmesq.autosavi.driver.DriverFactory;
+import com.andersonmesq.autosavi.actions.SeleniumActions;
 
 import java.awt.*;
 
@@ -29,16 +29,16 @@ Migrar para 100% selenium
 */
 public class Main {
     public static void main(String[] args) throws AWTException {
-        planilha planilha = new planilha();
-        saviCadastro savi = new saviCadastro();
-        leituraPlanilha leituraPlanilha = new leituraPlanilha();
-        automacaoData automacaoData = new automacaoData();
+        Planilha planilha = new Planilha();
+        SaviCadastro savi = new SaviCadastro();
+        LeituraPlanilha leituraPlanilha = new LeituraPlanilha();
+        AutomacaoData automacaoData = new AutomacaoData();
         Robot robot = new Robot();
-        automacao automacao = new automacao(robot);
-        driverSelerium driverS = new driverSelerium();
-        seleniumActions selenium = new seleniumActions();
+        Automacao automacao = new Automacao(robot);
+        DriverFactory driverS = new DriverFactory();
+        SeleniumActions selenium = new SeleniumActions();
 
-        autoMaster autoMaster = new autoMaster(planilha, savi, leituraPlanilha, automacaoData, automacao, driverS, selenium);
+        AutoMaster autoMaster = new AutoMaster(planilha, savi, leituraPlanilha, automacaoData, automacao, driverS, selenium);
 
         autoMaster.autoStart();
     }

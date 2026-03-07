@@ -2,7 +2,7 @@ package com.andersonmesq.autosavi.pages;
 
 import org.openqa.selenium.By;
 
-public class saviCadastro {
+public class SaviCadastro {
     private final By campoSenha = By.id("formulario:cd_senha");
     private final By imputSenha = By.id("formulario:btnPesquisaSenha");
     private final By campoQuantidade = By.id("formulario:quant_procedimento");
