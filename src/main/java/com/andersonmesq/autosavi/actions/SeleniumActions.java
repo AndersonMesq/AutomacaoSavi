@@ -1,9 +1,7 @@
 package com.andersonmesq.autosavi.actions;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.andersonmesq.autosavi.pages.SaviPage;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -13,31 +11,47 @@ public class SeleniumActions {
     private static final Logger logger = Logger.getLogger(SeleniumActions.class.getName());
     private String mensagemPopUp;
 
-    public boolean tratarPopUp(WebDriver driver, By textPopUp, By buttonPopUp) {
+    public static void startDelay() {
         try {
+            Thread.sleep(5000);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void tratarPopUp(WebDriver driver, By textPopUp, By buttonPopUp) {
+        int tentativas = 1;
+        while (tentativas <= 5) {
+            System.out.println(tentativas + "° Tentativa de tratamento do popUp");
             List<WebElement> mensagens = driver.findElements(textPopUp);
             if (mensagens.isEmpty()) {
-                return false;
+                tentativas++;
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
+                continue;
             }
-
             for (WebElement msg : mensagens) {
-                String texto = msg.getText();
-                if (!texto.isEmpty()) {
-                    System.out.println("Mensagem lida: " + texto);
-                    setMensagemPopUp(texto);
+                String msgText = msg.getText();
+                if (!msgText.isEmpty()) {
+                    System.out.println("Mensagem lida: " + msgText);
+                    setMensagemPopUp(msgText);
                     break;
                 }
             }
-
             WebElement botaoFechar = driver.findElement(buttonPopUp);
             botaoFechar.click();
-            return true;
+            return;
+        }
+    }
 
-        } catch (TimeoutException e) {
-            System.out.println("Nenhum pop-up detectado.");
-            return false;
+    public boolean isTelaCadastro(WebDriver driver, SaviPage saviPage) {
+        try {
+            driver.findElement(saviPage.getCampoPrestador());
+            return true;
         } catch (Exception e) {
-            System.out.println("Erro ao tratar pop-up: " + e.getMessage());
             return false;
         }
     }
@@ -46,7 +60,7 @@ public class SeleniumActions {
         driver.findElement(formId).click();
     }
 
-    public void selectBox(WebDriver driver, By formId, String value){
+    public void selectBox(WebDriver driver, By formId, String value) {
         Select select = new Select(driver.findElement(formId));
         select.selectByValue(value);
     }

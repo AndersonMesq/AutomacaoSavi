@@ -1,6 +1,5 @@
 package com.andersonmesq.autosavi.data;
 
-import com.andersonmesq.autosavi.automation.Automacao;
 import com.andersonmesq.autosavi.model.Planilha;
 import com.andersonmesq.autosavi.enums.TipoAtoData;
 import com.andersonmesq.autosavi.enums.ViaAcessoData;
@@ -8,21 +7,9 @@ import org.apache.poi.ss.usermodel.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class AutomacaoData {
-    public void prestadorDefinition(Automacao automacao) {
-        //Definindo qual prestador sera escolhido
-        Scanner sequenciaPrestador = new Scanner(System.in);
-        System.out.println("Verifique em seu campo de cadastro de guias no Savi " +
-                "em qual posição esta o prestador que deseja selecionar " +
-                "(Ex: Hapvida é o terceiro prestador listado. Resposta: 3)");
-        System.out.print("Sua resposta: ");
-
-        automacao.setNumeroDeSetasPres(sequenciaPrestador.nextInt());
-    }
-
-    public void planilhaSetters(Planilha planilha, DataFormatter formatter, String colunaNome, Cell cell) {
+        public void planilhaSetters(Planilha planilha, DataFormatter formatter, String colunaNome, Cell cell) {
         switch (colunaNome) {
             case "senha" -> {
                 String valorSenha = formatter.formatCellValue(cell);

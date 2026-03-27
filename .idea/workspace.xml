@@ -5,21 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa4fdf7-3441-4c4d-a5f7-52bf38419d5d" name="Changes" comment="Adição de loop ao chamar o metodo que trata o popUp, criação de uma classe para ficar com os &quot;relatorios&quot;.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/PortalStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/SaviStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/AutomationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/ConfigController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/SelectSiteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/fileConfigController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/AutomationState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/TipoSite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/Prestador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AppFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutomationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/SceneManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/StrategyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/strategy/SiteStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ui/config.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ui/fileConfig.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ui/select-site.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Planilha modelo.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Planilha modelo.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverEdge/msedgedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DriverEdge/msedgedriver.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/actions/seleniumActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/actions/SeleniumActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/automacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/Automacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/data/automacaoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/data/AutomacaoData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/driver/driverSelerium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/driver/DriverFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/tipoAtoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/TipoAtoData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/viaAcessoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/ViaAcessoData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/planilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/Planilha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/pages/saviCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/pages/SaviCadastro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/autoMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutoMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/leituraPlanilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/LeituraPlanilha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/verificacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/Verificacoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/relatorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/Relatorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/actions/SeleniumActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/actions/SeleniumActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/Automacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/Automacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/data/AutomacaoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/data/AutomacaoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/driver/DriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/driver/DriverFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/pages/SaviCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/pages/SaviPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutoMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutoMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/Relatorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/Relatorio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -79,6 +94,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ander\IdeaProjects\ProjetoAutoSavi\src\main\resources\UI" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="AutoTest" />
@@ -90,7 +108,7 @@
       <module name="ProjetoAutoSavi" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.andersonmesq.autosavi.automation.*" />
+          <option name="PATTERN" value="com.andersonmesq.autosavi.strategy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -110,7 +128,7 @@
       <module name="ProjetoAutoSavi" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.andersonmesq.autosavi.automation.*" />
+          <option name="PATTERN" value="com.andersonmesq.autosavi.strategy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -123,7 +141,7 @@
       <module name="ProjetoAutoSavi" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.andersonmesq.autosavi.automation.*" />
+          <option name="PATTERN" value="com.andersonmesq.autosavi.strategy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
