@@ -31,9 +31,9 @@ A aplicação está organizada visando escalabilidade futura:
 
 - Status do projeto
 
-✅ Automação funcional de formulários
-✅ Estrutura inicial baseada em padrões
-🚧 Em desenvolvimento contínuo
+* Automação funcional de formulários
+* Estrutura inicial baseada em padrões
+* Em desenvolvimento contínuo
 
 - Próximos passos
 
