@@ -1,4 +1,4 @@
-# 🚀 Automação de Formulários com Java + Selenium
+# Automação de Formulários com Java + Selenium
 
 Este projeto é uma **fase funcional de um sistema maior de automação web**, desenvolvido em Java, com foco na automação do preenchimento de formulários em sistemas web complexos (ex: JSF/AJAX).
 - Objetivo
@@ -52,8 +52,7 @@ git clone https://github.com/seu-usuario/seu-repo.git
 * Certifique-se de que a versão do EdgeDriver é compatível com seu navegador https://developer.microsoft.com/pt-br/microsoft-edge/tools/webdriver/?ch=1&form=MA13LH
 
 3. Execute a aplicação:
-# Via IDE (recomendado)
-# ou via linha de comando
+Via IDE (recomendado) ou via linha de comando.
 
 - Observações
 
