@@ -1,8 +1,8 @@
 package com.andersonmesq.autosavi.controller;
 
-import com.andersonmesq.autosavi.service.AppFactory;
+import com.andersonmesq.autosavi.factory.AppFactory;
 import com.andersonmesq.autosavi.enums.TipoSite;
-import com.andersonmesq.autosavi.service.SceneManager;
+import com.andersonmesq.autosavi.utils.SceneManager;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -30,7 +30,7 @@ public class SelectSiteController {
                 controller.prepare(site);
 
                 Platform.runLater(() -> {
-                    SceneManager.load("ui/config.fxml");
+                    SceneManager.load("ui/fileConfig.fxml");
                 });
 
             } catch (Exception e) {

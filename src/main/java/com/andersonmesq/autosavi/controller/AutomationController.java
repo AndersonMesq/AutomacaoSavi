@@ -1,20 +1,29 @@
 package com.andersonmesq.autosavi.controller;
 
 import com.andersonmesq.autosavi.actions.SeleniumActions;
+import com.andersonmesq.autosavi.context.AutomationContext;
 import com.andersonmesq.autosavi.driver.DriverFactory;
 import com.andersonmesq.autosavi.enums.AutomationState;
 import com.andersonmesq.autosavi.enums.TipoSite;
 import com.andersonmesq.autosavi.model.Prestador;
 import com.andersonmesq.autosavi.pages.SaviPage;
 import com.andersonmesq.autosavi.service.AutomationService;
-import com.andersonmesq.autosavi.service.StrategyFactory;
+import com.andersonmesq.autosavi.factory.StrategyFactory;
 import com.andersonmesq.autosavi.strategy.SiteStrategy;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
-import java.time.Duration;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import static com.andersonmesq.autosavi.enums.AutomationState.*;
@@ -23,18 +32,18 @@ public class AutomationController {
     private final DriverFactory driverFactory;
     private final SaviPage saviPage;
     private final SeleniumActions seleniumActions;
+    private final AutomationService automationService;
     private SiteStrategy strategy;
     private AutomationState state = AutomationState.IDLE;
-    private AutomationService automationService;
 
-    public AutomationController(DriverFactory driverFactory, SaviPage saviPage, SeleniumActions seleniumActions) {
+    public AutomationController(DriverFactory driverFactory, SaviPage saviPage, SeleniumActions seleniumActions, AutomationService automationService) {
         this.driverFactory = driverFactory;
         this.saviPage = saviPage;
         this.seleniumActions = seleniumActions;
+        this.automationService = automationService;
     }
 
-    public void start(Prestador prestador, File arquivo, Consumer<String> log) {
-
+    public void start(Prestador prestador, AutomationContext automationContext, Consumer<String> log) {
         if (state == AutomationState.PAUSED) {
             resume();
             log.accept("Automação retomada.");
@@ -45,17 +54,11 @@ public class AutomationController {
             log.accept("Automação já está em execução.");
             return;
         }
-        // Quando adicionar o Portal provavelmente alterar o metodo isTelaCadastro
-        WebDriver driver = driverFactory.getDriver();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(d -> seleniumActions.isTelaCadastro(d, saviPage));
-
         state = AutomationState.RUNNING;
         automationService.start(
                 strategy,
                 prestador,
-                arquivo,
-                log,
+                automationContext,
 
                 // onFinish
                 () -> {
@@ -107,6 +110,47 @@ public class AutomationController {
         strategy = StrategyFactory.create(site, driverFactory, seleniumActions);
         if (driverFactory.getDriver() == null) {
             driverFactory.openSavi();
+        }
+    }
+
+    public boolean sheetValidation(File arquivo) {
+        try (FileInputStream fis = new FileInputStream(arquivo);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheetAt(0);
+            Row cabecalho = sheet.getRow(0);
+
+            java.util.List<String> colunasObrigatorias = Arrays.asList("senha", "quantidade", "tipoAto", "data",
+                    "hora", "viaAcesso", "valor", "OBS", "mensagem", "cadastro");
+            Map<String, Integer> colunas = new HashMap<>();
+
+            for (String coluna : colunasObrigatorias) {
+                for (Cell cell : cabecalho) {
+                    if (cell.getStringCellValue().trim().equalsIgnoreCase(coluna)) {
+                        colunas.put(coluna, cell.getColumnIndex());
+                    }
+                }
+            }
+
+            if (colunas.size() < colunasObrigatorias.size()) {
+                throw new RuntimeException("Colunas não encontrada ou com nome incorreto");
+            } else {
+                System.out.println("Colunas validadas com sucesso\n");
+                return true;
+            }
+        } catch (IOException e) {
+            System.out.println("Não foi possivel validar: " + e);
+            return false;
+        }
+    }
+
+    public boolean isTelaCadastro() {
+        try {
+            WebDriver driver = driverFactory.getDriver();
+            driver.findElement(saviPage.getCampoSenha());
+            return true;
+        } catch (Exception e) {
+            return false;
         }
     }
 

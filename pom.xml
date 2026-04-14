@@ -15,21 +15,18 @@
     </properties>
 
     <dependencies>
-        <!-- Apache POI principal -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>5.2.5</version>
         </dependency>
 
-        <!-- Para arquivos .xlsx -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>5.2.5</version>
         </dependency>
 
-        <!-- Dependência opcional para manipular gráficos, imagens e outros -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml-schemas</artifactId>

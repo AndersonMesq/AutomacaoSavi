@@ -1,14 +1,18 @@
 package com.andersonmesq.autosavi;
 
-import com.andersonmesq.autosavi.service.AppFactory;
-import com.andersonmesq.autosavi.service.SceneManager;
+import com.andersonmesq.autosavi.utils.SceneManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 //07483697326 ray102030
 //60714652300 MA86322917
+//mvn javafx:run
 
-public class Main extends Application {
+/*
+Extração de prestadores não funcionou
+ */
+
+        public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         SceneManager.init(primaryStage);

@@ -33,6 +33,7 @@ public class SaviStrategy implements SiteStrategy {
 
     @Override
     public List<Prestador> loadPrestadores() {
+        saviPage = new SaviPage();
         Map<String, String> mapa = extractPrestadores(driverFactory, saviPage);
 
         List<Prestador> lista = new ArrayList<>();
@@ -71,9 +72,9 @@ public class SaviStrategy implements SiteStrategy {
         //2 - Pesquisar senha
         selenium.pressImput(driver, saviPage.getImputSenha());
         //3 - Campo quantidade
+        selenium.waitForDomUpdate(driver, saviPage.getCampoQuantidade());
         selenium.writeText(driver, saviPage.getCampoQuantidade(), String.valueOf(planilha.getQuantidade()));
         //4 - Campo prestador
-        selenium.pressImput(driver, saviPage.getCampoPrestador());
         selenium.selectBox(driver, saviPage.getCampoPrestador(), prestador.getValue());
         //5 - Campo tipo de ato
         selenium.selectBox(driver, saviPage.getCampoTipoAto(), planilha.getTipoAto().getValueHtml());

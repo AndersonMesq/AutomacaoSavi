@@ -1,5 +1,7 @@
 package com.andersonmesq.autosavi.service;
 
+import com.andersonmesq.autosavi.context.AutomationContext;
+import com.andersonmesq.autosavi.factory.AppFactory;
 import com.andersonmesq.autosavi.model.Prestador;
 import com.andersonmesq.autosavi.strategy.SiteStrategy;
 import com.andersonmesq.autosavi.controller.AutomationController;
@@ -10,7 +12,6 @@ import com.andersonmesq.autosavi.actions.SeleniumActions;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,12 +21,15 @@ import java.util.logging.Logger;
 
 import static com.andersonmesq.autosavi.enums.AutomationState.*;
 
+//Settando campo controller para textar o funcionamento da automação, AutoMaster esta sendo instanciado com controller null.
+
 public class AutoMaster {
     private static final Logger logger = Logger.getLogger(AutoMaster.class.getName());
     private final Planilha planilha;
     private final LeituraPlanilha leituraPlanilha;
     private final AutomacaoData automacaoData;
     private final SeleniumActions seleniumActions;
+    private AutomationController controller;
 
     public AutoMaster(Planilha planilha, LeituraPlanilha leituraPlanilha, AutomacaoData automacaoData, SeleniumActions seleniumActions) {
         this.planilha = planilha;
@@ -34,10 +38,10 @@ public class AutoMaster {
         this.seleniumActions = seleniumActions;
     }
 
-    public void autoStart(SiteStrategy strategy, Prestador prestador, File arquivo, AutomationController controller) {
+    public void autoStart(SiteStrategy strategy, Prestador prestador, AutomationContext automationContext) {
+        controller = AppFactory.getInstance().getAutomationController();
         controller.checkAutoState();
-        leituraPlanilha.sheetValidation();
-        try (FileInputStream fis = new FileInputStream(arquivo)) {
+        try (FileInputStream fis = new FileInputStream(automationContext.getArquivo())) {
             Workbook workbook = new XSSFWorkbook(fis);
             Sheet sheet = workbook.getSheetAt(0);
             Row primeiraLinha = sheet.getRow(0);

@@ -2,13 +2,6 @@ package com.andersonmesq.autosavi.service;
 
 import com.andersonmesq.autosavi.actions.SeleniumActions;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Logger;
 
 public class LeituraPlanilha {
@@ -18,39 +11,10 @@ public class LeituraPlanilha {
         return "C:\\Users\\ander\\IdeaProjects\\ProjetoAutoSavi\\Planilha modelo.xlsx";
     }
 
-    public void sheetValidation() {
-        try (FileInputStream fis = new FileInputStream(filePath());
-             Workbook workbook = new XSSFWorkbook(fis)) {
-
-            Sheet sheet = workbook.getSheetAt(0);
-            Row cabecalho = sheet.getRow(0);
-
-            java.util.List<String> colunasObrigatorias = Arrays.asList("senha", "quantidade", "tipoAto", "data",
-                    "hora", "viaAcesso", "valor", "OBS", "mensagem", "cadastro");
-            Map<String, Integer> colunas = new HashMap<>();
-
-            for (String coluna : colunasObrigatorias) {
-                for (Cell cell : cabecalho) {
-                    if (cell.getStringCellValue().trim().equalsIgnoreCase(coluna)) {
-                        colunas.put(coluna, cell.getColumnIndex());
-                    }
-                }
-            }
-
-            if (colunas.size() < colunasObrigatorias.size()) {
-                throw new RuntimeException("Colunas não encontrada ou com nome incorreto");
-            } else {
-                System.out.println("Colunas validadas com sucesso\n");
-            }
-        } catch (IOException e) {
-            logger.severe("Erro ao tentar validar planilha" + e.getMessage());
-            logger.log(java.util.logging.Level.SEVERE, "Detalhes do erro: ", e);
-        }
-    }
-
-    public int verificacaoCadastro(SeleniumActions selenium) {
+    public boolean verificacaoCadastro(SeleniumActions selenium) {
         String mensagem = selenium.getMensagemPopUp();
-        return mensagem.contains("Honorário Médico processado com sucesso") ? 1 : 0;
+        System.out.println("Mensagem do metodo verificação cadastro: " + mensagem);
+        return mensagem.contains("Honorário Médico processado com sucesso");
     }
 
     public void setCellCadastro(SeleniumActions selenium, Sheet sheet, int i) {
@@ -62,7 +26,7 @@ public class LeituraPlanilha {
 
         Cell valorCadastro = row.getCell(9, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
 
-        if (verificacaoCadastro(selenium) == 1) {
+        if (verificacaoCadastro(selenium)) {
             valorCadastro.setCellValue("OK");
         } else {
             valorCadastro.setCellValue("ERRO");

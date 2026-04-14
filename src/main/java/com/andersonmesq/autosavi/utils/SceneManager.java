@@ -1,4 +1,4 @@
-package com.andersonmesq.autosavi.service;
+package com.andersonmesq.autosavi.utils;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

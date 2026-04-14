@@ -1,12 +1,10 @@
-package com.andersonmesq.autosavi.service;
+package com.andersonmesq.autosavi.factory;
 
 import com.andersonmesq.autosavi.actions.SeleniumActions;
 import com.andersonmesq.autosavi.automation.SaviStrategy;
 import com.andersonmesq.autosavi.driver.DriverFactory;
 import com.andersonmesq.autosavi.strategy.SiteStrategy;
 import com.andersonmesq.autosavi.enums.TipoSite;
-import com.andersonmesq.autosavi.pages.SaviPage;
-import org.openqa.selenium.WebDriver;
 
 public class StrategyFactory {
     DriverFactory driverFactory = new DriverFactory();
