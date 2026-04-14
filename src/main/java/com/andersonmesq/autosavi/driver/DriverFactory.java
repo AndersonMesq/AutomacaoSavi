@@ -18,7 +18,6 @@ public class DriverFactory {
     }
 
     public WebDriver getDriver() {
-        System.setProperty("webdriver.edge.driver", "C:\\Users\\ander\\IdeaProjects\\ProjetoAutoSavi\\DriverEdge\\msedgedriver.exe");
         return driver;
     }
 }

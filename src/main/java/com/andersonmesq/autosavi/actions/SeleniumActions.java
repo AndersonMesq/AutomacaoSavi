@@ -1,11 +1,11 @@
 package com.andersonmesq.autosavi.actions;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -13,48 +13,86 @@ public class SeleniumActions {
     private static final Logger logger = Logger.getLogger(SeleniumActions.class.getName());
     private String mensagemPopUp;
 
-    public boolean tratarPopUp(WebDriver driver, By textPopUp, By buttonPopUp) {
+    public static void startDelay() {
         try {
-            List<WebElement> mensagens = driver.findElements(textPopUp);
-            if (mensagens.isEmpty()) {
-                return false;
-            }
+            Thread.sleep(5000);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+    }
 
-            for (WebElement msg : mensagens) {
-                String texto = msg.getText();
-                if (!texto.isEmpty()) {
-                    System.out.println("Mensagem lida: " + texto);
-                    setMensagemPopUp(texto);
-                    break;
+    public void waitForDomUpdate(WebDriver driver, By observer) {
+        WebElement element = driver.findElement(observer);
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.stalenessOf(element));
+    }
+
+    public void tratarPopUp(WebDriver driver, By textPopUp, By buttonPopUp) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Tentativa " + i + " de tratamento do popUp");
+            try {
+                List<WebElement> mensagens = wait.until(driver1 -> {
+                    List<WebElement> els = driver.findElements(textPopUp);
+
+                    for (WebElement el : els) {
+                        String texto = el.getText();
+
+                        if (texto != null && !texto.isBlank()) {
+                            return els;
+                        }
+                    }
+                    return null;
+                });
+
+                if (mensagens.isEmpty()) {
+                    Thread.sleep(1000);
+                    continue;
+                }
+                for (WebElement msg : mensagens) {
+                    System.out.println("WebElement msg: " + msg);
+                    System.out.println("mensagens: " + mensagens);
+                    String msgText = msg.getText();
+                    System.out.println("msgText: " + msgText);
+                    if (!msgText.isEmpty()) {
+                        System.out.println("Mensagem lida: " + msgText);
+                        setMensagemPopUp(msgText);
+                        Thread.sleep(200);
+                        break;
+                    }
+                }
+                WebElement botaoFechar = wait.until(
+                        ExpectedConditions.elementToBeClickable(buttonPopUp)
+                );
+                botaoFechar.click();
+                return;
+            } catch (Exception e) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
                 }
             }
-
-            WebElement botaoFechar = driver.findElement(buttonPopUp);
-            botaoFechar.click();
-            return true;
-
-        } catch (TimeoutException e) {
-            System.out.println("Nenhum pop-up detectado.");
-            return false;
-        } catch (Exception e) {
-            System.out.println("Erro ao tratar pop-up: " + e.getMessage());
-            return false;
         }
     }
 
     public void pressImput(WebDriver driver, By formId) {
-        driver.findElement(formId).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement imput = wait.until(ExpectedConditions.elementToBeClickable(formId));
+        imput.click();
     }
 
-    public void selectBox(WebDriver driver, By formId, String value){
-        Select select = new Select(driver.findElement(formId));
+    public void selectBox(WebDriver driver, By formId, String value) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(formId));
+        Select select = new Select(element);
         select.selectByValue(value);
     }
 
     public void writeText(WebDriver driver, By formId, String text) {
-        WebElement form = driver.findElement(formId);
-        form.clear();
-        form.sendKeys(text);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(formId));
+        element.clear();
+        element.sendKeys(text);
     }
 
     public void setMensagemPopUp(String mensagemPopUp) {

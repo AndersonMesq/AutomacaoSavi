@@ -1,6 +1,5 @@
 package com.andersonmesq.autosavi.utils;
 
-import com.andersonmesq.autosavi.automation.Automacao;
 import com.andersonmesq.autosavi.model.Planilha;
 
 import java.time.format.DateTimeFormatter;
@@ -21,7 +20,7 @@ public class Relatorio {
         System.out.println("---------------------------------------------------");
     }
 
-    public static void autoReport(Planilha planilha, Automacao automacao){
+    public static void autoReport(Planilha planilha){
         System.out.println("///////////////////RELATORIO AUTO///////////////////");
         System.out.println("Senha: " + planilha.getSenha());
         System.out.println("Quantidade: " + planilha.getQuantidade());

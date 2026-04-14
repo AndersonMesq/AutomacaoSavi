@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.andersonmesq.autosavi.controller.FileConfigController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Seleção de arquivo -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Arquivo:" />
+        <Label fx:id="lblArquivo" text="Nenhum arquivo selecionado" />
+        <Button text="Selecionar" onAction="#onSelecionarArquivo"/>
+    </HBox>
+
+    <!-- Botão validar -->
+    <Button text="Validar Planilha" onAction="#onValidarPlanilha"/>
+
+    <!-- Status -->
+    <Label fx:id="lblStatus" text="Status..." />
+
+    <!-- Botões inferiores -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Avançar" onAction="#onAvancar"/>
+        <Button text="Cancelar" onAction="#onCancelar"/>
+    </HBox>
+
+</VBox>
