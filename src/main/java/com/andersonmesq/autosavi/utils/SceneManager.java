@@ -1,63 +1,32 @@
 package com.andersonmesq.autosavi.utils;
 
+import com.andersonmesq.autosavi.controller.MainController;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.scene.Node;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 
 public class SceneManager {
-    private static Stage stage;
+    private static final Logger log = LoggerFactory.getLogger(SceneManager.class);
 
-    public static void init(Stage stage) {
-        SceneManager.stage = stage;
-    }
-
-    public static void setStage(Stage primaryStage) {
-        stage = primaryStage;
-    }
-
-    public static void load(String fxml) {
+    public static void loadContent(String fxml) {
         try {
-            FXMLLoader loader = new FXMLLoader(
-                    SceneManager.class.getResource("/" + fxml)
-            );
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource("/ui/" + fxml));
+            System.out.println("fxml: " + fxml);
+            Node node = loader.load();
 
-            Parent root = loader.load();
-            stage.setScene(new Scene(root));
+            mainController.setContent(node);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            log.debug("Erro ao executar loadContent(SceneManager): ", e);
         }
     }
 
-//    public static void load(String fxml) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(
-//                    SceneManager.class.getResource("/" + fxml)
-//            );
-//
-//            loader.setControllerFactory(clazz -> {
-//                if (clazz == SelectSiteController.class) {
-//                    return new SelectSiteController(factory.getAutomationController());
-//                }
-//
-//                if (clazz == ConfigController.class) {
-//                    return new ConfigController(factory.getAutomationController());
-//                }
-//
-//                try {
-//                    return clazz.getDeclaredConstructor().newInstance();
-//                } catch (Exception e) {
-//                    throw new RuntimeException(e);
-//                }
-//            });
-//
-//            Parent root = loader.load();
-//            stage.setScene(new Scene(root));
-//            stage.show();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private static MainController mainController;
+
+    public static void setMainController(MainController controller) {
+        mainController = controller;
+    }
 }

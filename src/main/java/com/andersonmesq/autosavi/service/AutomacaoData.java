@@ -1,15 +1,20 @@
-package com.andersonmesq.autosavi.data;
+package com.andersonmesq.autosavi.service;
 
 import com.andersonmesq.autosavi.model.Planilha;
 import com.andersonmesq.autosavi.enums.TipoAtoData;
 import com.andersonmesq.autosavi.enums.ViaAcessoData;
+import com.andersonmesq.autosavi.utils.LogMarkers;
 import org.apache.poi.ss.usermodel.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class AutomacaoData {
-        public void planilhaSetters(Planilha planilha, DataFormatter formatter, String colunaNome, Cell cell) {
+    private static final Logger log = LoggerFactory.getLogger(AutomacaoData.class);
+
+    public void planilhaSetters(Planilha planilha, DataFormatter formatter, String colunaNome, Cell cell) {
         switch (colunaNome) {
             case "senha" -> {
                 String valorSenha = formatter.formatCellValue(cell);

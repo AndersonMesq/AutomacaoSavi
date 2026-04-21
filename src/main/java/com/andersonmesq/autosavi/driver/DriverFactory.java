@@ -5,19 +5,13 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
 public class DriverFactory {
-    private WebDriver driver;
-
-    public void openSavi() {
+    public WebDriver createEdge() {
         System.setProperty("webdriver.edge.driver", "C:\\Users\\ander\\IdeaProjects\\ProjetoAutoSavi\\DriverEdge\\msedgedriver.exe");
+
         EdgeOptions options = new EdgeOptions();
-        options.setExperimentalOption("detach", true);
+        options.setExperimentalOption("detach", false);
         options.addArguments("--start-maximized");
 
-        driver = new EdgeDriver(options);
-        driver.get("https://saviatendimento.com.br/saviatendimento/login.faces");
-    }
-
-    public WebDriver getDriver() {
-        return driver;
+        return new EdgeDriver(options);
     }
 }

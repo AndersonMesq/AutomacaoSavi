@@ -1,10 +1,10 @@
 package com.andersonmesq.autosavi.automation;
 
 import com.andersonmesq.autosavi.actions.SeleniumActions;
-import com.andersonmesq.autosavi.driver.DriverFactory;
 import com.andersonmesq.autosavi.model.Planilha;
 import com.andersonmesq.autosavi.model.Prestador;
 import com.andersonmesq.autosavi.pages.SaviPage;
+import com.andersonmesq.autosavi.service.BrowserManager;
 import com.andersonmesq.autosavi.strategy.SiteStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.sql.Driver;
 import java.time.Duration;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -22,19 +21,19 @@ import java.util.Map;
 
 public class SaviStrategy implements SiteStrategy {
     private final SeleniumActions selenium;
-    private final DriverFactory driverFactory;
+    private final BrowserManager browserManager;
     private WebDriver driver;
     private SaviPage saviPage;
 
-    public SaviStrategy(SeleniumActions selenium, DriverFactory driverFactory) {
+    public SaviStrategy(SeleniumActions selenium, BrowserManager browserManager) {
         this.selenium = selenium;
-        this.driverFactory = driverFactory;
+        this.browserManager = browserManager;
     }
 
     @Override
     public List<Prestador> loadPrestadores() {
         saviPage = new SaviPage();
-        Map<String, String> mapa = extractPrestadores(driverFactory, saviPage);
+        Map<String, String> mapa = extractPrestadores(browserManager, saviPage);
 
         List<Prestador> lista = new ArrayList<>();
 
@@ -45,14 +44,11 @@ public class SaviStrategy implements SiteStrategy {
         return lista;
     }
 
-    public Map<String, String> extractPrestadores(DriverFactory driverFactory, SaviPage saviPage) {
-        driver = driverFactory.getDriver();
+    public Map<String, String> extractPrestadores(BrowserManager browserManager, SaviPage saviPage) {
+        driver = browserManager.getDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
-
         WebElement selectElement = wait.until(ExpectedConditions.visibilityOfElementLocated(saviPage.getCampoPrestador()));
-
         Select select = new Select(selectElement);
-
         Map<String, String> prestadores = new LinkedHashMap<>();
 
         for (WebElement option : select.getOptions()) {
@@ -92,6 +88,6 @@ public class SaviStrategy implements SiteStrategy {
         //10 - Gravar guia
         selenium.pressImput(driver, saviPage.getImputGravar());
         //11 - tratar pop-up
-        selenium.tratarPopUp(driver, saviPage.getPopUptext(), saviPage.getPopUpButton());
+        selenium.popUpTratament(driver, saviPage.getPopUptext(), saviPage.getPopUpButton());
     }
 }

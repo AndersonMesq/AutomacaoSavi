@@ -2,23 +2,19 @@ package com.andersonmesq.autosavi.service;
 
 import com.andersonmesq.autosavi.actions.SeleniumActions;
 import org.apache.poi.ss.usermodel.*;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LeituraPlanilha {
-    private static final Logger logger = Logger.getLogger(LeituraPlanilha.class.getName());
-
-    public static String filePath() {
-        return "C:\\Users\\ander\\IdeaProjects\\ProjetoAutoSavi\\Planilha modelo.xlsx";
-    }
-
-    public boolean verificacaoCadastro(SeleniumActions selenium) {
-        String mensagem = selenium.getMensagemPopUp();
-        System.out.println("Mensagem do metodo verificação cadastro: " + mensagem);
-        return mensagem.contains("Honorário Médico processado com sucesso");
-    }
+    private static final Logger log = LoggerFactory.getLogger(LeituraPlanilha.class);
+//    public boolean verificacaoCadastro(SeleniumActions selenium) {
+//        String mensagem = selenium.getMensagemPopUp();
+//        return mensagem.contains("Honorário Médico processado com sucesso");
+//    }
 
     public void setCellCadastro(SeleniumActions selenium, Sheet sheet, int i) {
         Row row = sheet.getRow(i);
+        String mensagem = selenium.getMensagemPopUp();
         if (row == null) return;
 
         Cell primeiraCelula = row.getCell(0, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
@@ -26,10 +22,18 @@ public class LeituraPlanilha {
 
         Cell valorCadastro = row.getCell(9, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
 
-        if (verificacaoCadastro(selenium)) {
+//        if (verificacaoCadastro(selenium)) {
+//            valorCadastro.setCellValue("OK");
+//        } else {
+//            valorCadastro.setCellValue("ERRO");
+//        }
+
+        if (mensagem.contains("Honorário Médico processado com sucesso")) {
             valorCadastro.setCellValue("OK");
+            System.out.println("Teste do ok");
         } else {
             valorCadastro.setCellValue("ERRO");
+            System.out.println("Teste do erro");
         }
     }
 

@@ -9,10 +9,6 @@ public class Prestador {
         this.value = value;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
     public String getValue() {
         return value;
     }
