@@ -1,24 +1,46 @@
 package com.andersonmesq.autosavi;
 
+import com.andersonmesq.autosavi.controller.MainController;
+import com.andersonmesq.autosavi.factory.AppFactory;
 import com.andersonmesq.autosavi.utils.SceneManager;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-//07483697326 ray102030
-//60714652300 MA86322917
-//mvn javafx:run
-
-/*
-Extração de prestadores não funcionou
- */
-
-        public class Main extends Application {
+public class Main extends Application {
     @Override
-    public void start(Stage primaryStage) {
-        SceneManager.init(primaryStage);
-        SceneManager.setStage(primaryStage);
-        SceneManager.load("ui/select-site.fxml");
-        primaryStage.setTitle("AutoSavi");
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/main-overlay.fxml"));
+        Parent root = loader.load();
+
+        MainController mainController = loader.getController();
+        SceneManager.setMainController(mainController);
+
+        FXMLLoader telaLoader = new FXMLLoader(getClass().getResource("/ui/select-site.fxml"));
+        Node tela = telaLoader.load();
+
+        mainController.setContent(tela);
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+
+        primaryStage.setScene(scene);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.setAlwaysOnTop(true);
+        primaryStage.setResizable(false);
+
+        Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
+
+        primaryStage.setX(bounds.getMaxX() - 340);
+        primaryStage.setY(20);
+
         primaryStage.show();
     }
 

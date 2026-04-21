@@ -14,6 +14,10 @@ public class FileConfigController {
     private boolean planilhaValida = false;
     private AutomationController controller;
 
+    public void initialize() {
+        controller = AppFactory.getInstance().getAutomationController();
+    }
+
     @FXML
     private Label lblArquivo;
 
@@ -23,9 +27,7 @@ public class FileConfigController {
         chooser.getExtensionFilters().add(
                 new FileChooser.ExtensionFilter("Excel", "*.xlsx")
         );
-
         File file = chooser.showOpenDialog(null);
-
         if (file != null) {
             this.arquivoSelecionado = file;
             lblArquivo.setText(file.getName());
@@ -34,7 +36,7 @@ public class FileConfigController {
 
     @FXML
     private void onValidarPlanilha() {
-        controller = AppFactory.getInstance().getAutomationController();
+        controller.checkBrowser();
         AutomationContext automationContext = AppFactory.getInstance().getAutomationContext();
         if (arquivoSelecionado == null) {
             atualizarStatus("Selecione um arquivo primeiro");
@@ -57,26 +59,22 @@ public class FileConfigController {
 
     @FXML
     private void onAvancar() {
-
         if (!planilhaValida) {
             atualizarStatus("Valide a planilha antes de continuar");
             return;
         }
-
         boolean isCadastro = controller.isTelaCadastro();
-
         if (!isCadastro) {
             atualizarStatus("Você não está na tela de cadastro");
             return;
         }
-
-        SceneManager.load("ui/autoConfig.fxml");
+        SceneManager.loadContent("autoConfig.fxml");
     }
 
     @FXML
     private void onCancelar() {
         controller.cancel();
-        SceneManager.load("autoConfig.fxml");
+        SceneManager.loadContent("autoConfig.fxml");
     }
 
     @FXML

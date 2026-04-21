@@ -8,7 +8,7 @@
       fx:controller="com.andersonmesq.autosavi.controller.FileConfigController">
 
     <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
+        <Insets top="5" right="5" bottom="5" left="5"/>
     </padding>
 
     <!-- Seleção de arquivo -->

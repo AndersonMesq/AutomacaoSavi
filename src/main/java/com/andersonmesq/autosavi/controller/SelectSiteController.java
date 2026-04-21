@@ -6,8 +6,11 @@ import com.andersonmesq.autosavi.utils.SceneManager;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SelectSiteController {
+    private static final Logger log = LoggerFactory.getLogger(SelectSiteController.class);
 
     @FXML
     private ComboBox<TipoSite> comboSite;
@@ -22,19 +25,17 @@ public class SelectSiteController {
     @FXML
     private void onNext() {
         TipoSite site = comboSite.getValue();
-
-        if (site == null) return;
+        if (site == null) {
+            log.debug("Site valor null");
+            return;
+        }
 
         new Thread(() -> {
             try {
                 controller.prepare(site);
-
-                Platform.runLater(() -> {
-                    SceneManager.load("ui/fileConfig.fxml");
-                });
-
+                Platform.runLater(() -> SceneManager.loadContent("fileConfig.fxml"));
             } catch (Exception e) {
-                e.printStackTrace();
+                log.debug("Erro ao iniciar: ", e);
             }
         }).start();
     }

@@ -1,7 +1,5 @@
 package com.andersonmesq.autosavi.context;
 
-import com.andersonmesq.autosavi.service.AutoMaster;
-
 import java.io.File;
 
 public class AutomationContext {

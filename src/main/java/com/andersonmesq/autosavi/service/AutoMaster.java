@@ -5,26 +5,23 @@ import com.andersonmesq.autosavi.factory.AppFactory;
 import com.andersonmesq.autosavi.model.Prestador;
 import com.andersonmesq.autosavi.strategy.SiteStrategy;
 import com.andersonmesq.autosavi.controller.AutomationController;
-import com.andersonmesq.autosavi.data.AutomacaoData;
-import com.andersonmesq.autosavi.utils.Relatorio;
 import com.andersonmesq.autosavi.model.Planilha;
 import com.andersonmesq.autosavi.actions.SeleniumActions;
+import com.andersonmesq.autosavi.utils.LogMarkers;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import static com.andersonmesq.autosavi.enums.AutomationState.*;
 
-//Settando campo controller para textar o funcionamento da automação, AutoMaster esta sendo instanciado com controller null.
-
 public class AutoMaster {
-    private static final Logger logger = Logger.getLogger(AutoMaster.class.getName());
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(AutoMaster.class);
     private final Planilha planilha;
     private final LeituraPlanilha leituraPlanilha;
     private final AutomacaoData automacaoData;
@@ -61,11 +58,7 @@ public class AutoMaster {
                     break;
                 }
                 if (LeituraPlanilha.checkCadastro(sheet, formatter, i)) {
-                    System.out.println(
-                            "**************************\n" +
-                                    "Linha " + i + " com cadastro OK\n" +
-                                    "**************************"
-                    );
+                    LogMarkers.user(log, "**************************\nLinha {} com cadastro OK\n**************************", i);
                     continue;
                 }
                 for (Map.Entry<String, Integer> entry : colunas.entrySet()) {
@@ -77,22 +70,27 @@ public class AutoMaster {
                     if (colunaNome.equals("senha") && formatter.formatCellValue(cell).isEmpty()) {
                         break linhaLoop;
                     }
+                    controller.checkAutoState();
                     automacaoData.planilhaSetters(planilha, formatter, colunaNome, cell);
                 }
-                Relatorio.planilhaReport(planilha);
+                LogMarkers.user(log, "Senha {} em cadastro", planilha.getSenha());
+                planilha.planilhaReport();
                 SeleniumActions.startDelay();
+                controller.checkAutoState();
                 strategy.startStrategy(planilha, prestador);
-                Relatorio.autoReport(planilha);
+                planilha.planilhaReport();
                 leituraPlanilha.setCellMensagem(seleniumActions, sheet, i);
                 leituraPlanilha.setCellCadastro(seleniumActions, sheet, i);
+                LogMarkers.user(log, "------------------------");
+                log.debug("------------------------");
             }
-            try (FileOutputStream fos = new FileOutputStream(LeituraPlanilha.filePath())) {
+            try (FileOutputStream fos = new FileOutputStream(automationContext.getArquivo())) {
                 workbook.write(fos);
             }
             controller.setState(FINISHED);
         } catch (IOException e) {
-            logger.severe("Erro ao tentar executar automação: " + e.getMessage());
-            logger.log(java.util.logging.Level.SEVERE, "Detalhes do erro: ", e);
+            LogMarkers.user(log, "Erro ao tentar executar automação: {}", e.getMessage());
+            log.debug("Erro ao tentar executar automação: ", e);
         }
     }
 }

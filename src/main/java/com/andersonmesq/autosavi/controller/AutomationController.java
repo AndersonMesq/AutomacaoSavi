@@ -2,20 +2,26 @@ package com.andersonmesq.autosavi.controller;
 
 import com.andersonmesq.autosavi.actions.SeleniumActions;
 import com.andersonmesq.autosavi.context.AutomationContext;
-import com.andersonmesq.autosavi.driver.DriverFactory;
 import com.andersonmesq.autosavi.enums.AutomationState;
 import com.andersonmesq.autosavi.enums.TipoSite;
 import com.andersonmesq.autosavi.model.Prestador;
 import com.andersonmesq.autosavi.pages.SaviPage;
 import com.andersonmesq.autosavi.service.AutomationService;
 import com.andersonmesq.autosavi.factory.StrategyFactory;
+import com.andersonmesq.autosavi.service.BrowserManager;
 import com.andersonmesq.autosavi.strategy.SiteStrategy;
+import com.andersonmesq.autosavi.utils.BrowserClosedException;
+import com.andersonmesq.autosavi.utils.LogMarkers;
+import com.andersonmesq.autosavi.utils.SceneManager;
+import javafx.application.Platform;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,34 +30,34 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 
 import static com.andersonmesq.autosavi.enums.AutomationState.*;
 
 public class AutomationController {
-    private final DriverFactory driverFactory;
+    private static final Logger log = LoggerFactory.getLogger(AutomationController.class);
+    private final BrowserManager browserManager;
     private final SaviPage saviPage;
     private final SeleniumActions seleniumActions;
     private final AutomationService automationService;
     private SiteStrategy strategy;
     private AutomationState state = AutomationState.IDLE;
 
-    public AutomationController(DriverFactory driverFactory, SaviPage saviPage, SeleniumActions seleniumActions, AutomationService automationService) {
-        this.driverFactory = driverFactory;
+    public AutomationController(BrowserManager browserManager, SaviPage saviPage, SeleniumActions seleniumActions, AutomationService automationService) {
+        this.browserManager = browserManager;
         this.saviPage = saviPage;
         this.seleniumActions = seleniumActions;
         this.automationService = automationService;
     }
 
-    public void start(Prestador prestador, AutomationContext automationContext, Consumer<String> log) {
+    public void start(Prestador prestador, AutomationContext automationContext) {
         if (state == AutomationState.PAUSED) {
             resume();
-            log.accept("Automação retomada.");
+            LogMarkers.user(log, "Automação retomada");
             return;
         }
 
         if (state == AutomationState.RUNNING) {
-            log.accept("Automação já está em execução.");
+            LogMarkers.user(log, "Automação ja em andamento");
             return;
         }
         state = AutomationState.RUNNING;
@@ -60,16 +66,14 @@ public class AutomationController {
                 prestador,
                 automationContext,
 
-                // onFinish
                 () -> {
                     state = AutomationState.FINISHED;
-                    log.accept("Automação finalizada.");
+                    LogMarkers.user(log, "Automação finalizada");
                 },
 
-                // onError
                 (e) -> {
                     state = AutomationState.CANCELLED;
-                    log.accept("Erro: " + e.getMessage());
+                    LogMarkers.user(log, "Erro ao iniciar automação: ", e);
                 }
         );
     }
@@ -87,7 +91,6 @@ public class AutomationController {
     }
 
     public void checkAutoState() {
-
         if (state == CANCELLED) {
             throw new RuntimeException("Execução cancelada");
         }
@@ -103,14 +106,22 @@ public class AutomationController {
                 Thread.currentThread().interrupt();
             }
         }
-        System.out.println("Automação pausada");
+    }
+
+    public void checkBrowser(){
+        if (!browserManager.isBrowserAlive()) {
+            LogMarkers.user(log, "Navegador fechado. Voltando para seleção");
+            Platform.runLater(() ->
+                    SceneManager.loadContent("select-site.fxml")
+            );
+        }
+        throw new BrowserClosedException();
     }
 
     public void prepare(TipoSite site) {
-        strategy = StrategyFactory.create(site, driverFactory, seleniumActions);
-        if (driverFactory.getDriver() == null) {
-            driverFactory.openSavi();
-        }
+        strategy = StrategyFactory.create(site, browserManager, seleniumActions);
+        browserManager.ensureBrowser();
+        log.debug("Browser pronto");
     }
 
     public boolean sheetValidation(File arquivo) {
@@ -131,22 +142,17 @@ public class AutomationController {
                     }
                 }
             }
+            return colunas.size() >= colunasObrigatorias.size();
 
-            if (colunas.size() < colunasObrigatorias.size()) {
-                throw new RuntimeException("Colunas não encontrada ou com nome incorreto");
-            } else {
-                System.out.println("Colunas validadas com sucesso\n");
-                return true;
-            }
         } catch (IOException e) {
-            System.out.println("Não foi possivel validar: " + e);
+            log.debug("Não foi possivel validar planilha, erro: ", e);
             return false;
         }
     }
 
     public boolean isTelaCadastro() {
         try {
-            WebDriver driver = driverFactory.getDriver();
+            WebDriver driver = browserManager.getDriver();
             driver.findElement(saviPage.getCampoSenha());
             return true;
         } catch (Exception e) {

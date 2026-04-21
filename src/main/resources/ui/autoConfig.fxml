@@ -4,17 +4,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="15" xmlns:fx="http://javafx.com/fxml"
+<VBox spacing="10" styleClass="content-box" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.andersonmesq.autosavi.controller.AutoConfigController">
 
     <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
+        <Insets top="5" right="5" bottom="5" left="5"/>
     </padding>
 
     <!-- Seleção de prestador -->
     <HBox spacing="10" alignment="CENTER_LEFT">
         <Label text="Prestador:" />
-        <ComboBox fx:id="comboPrestadores" prefWidth="250"/>
+        <ComboBox fx:id="comboPrestadores" HBox.hgrow="ALWAYS"/>
         <Button text="Atualizar" onAction="#onAtualizarPrestadores"/>
     </HBox>
 
@@ -25,14 +25,21 @@
         <Button text="Cancelar" onAction="#onCancelar"/>
     </HBox>
 
+
+
     <!-- Área de log -->
     <VBox spacing="5">
         <Label text="Logs:" />
-        <TextArea fx:id=""
+        <TextArea fx:id="logArea"
                   prefHeight="300"
                   wrapText="true"
                   editable="false"/>
     </VBox>
+
+    <HBox spacing="10">
+        <CheckBox fx:id="debugCheckBox" text="Modo debug"/>
+        <Button text="Copiar" onAction="#copiarLog"/>
+    </HBox>
 
     <Label fx:id="lblStatus" text="Status..." />
 
