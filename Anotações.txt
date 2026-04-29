@@ -1,8 +1,0 @@
-//07483697326 ray102030
-//60714652300 MA86322917
-//mvn javafx:run
-log.info(LogMarkers.USER, "Erro ao tratar popup");
-LogMarkers.user(log, xxxxxxxxxxxx);
-
-- Pasta com logs salvos que apague logs antigos apos uma certa quantidade
-
