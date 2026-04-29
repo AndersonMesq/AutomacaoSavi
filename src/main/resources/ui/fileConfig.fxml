@@ -21,9 +21,6 @@
     <!-- Botão validar -->
     <Button text="Validar Planilha" onAction="#onValidarPlanilha"/>
 
-    <!-- Status -->
-    <Label fx:id="lblStatus" text="Status..." />
-
     <!-- Botões inferiores -->
     <HBox spacing="10" alignment="CENTER">
         <Button text="Avançar" onAction="#onAvancar"/>

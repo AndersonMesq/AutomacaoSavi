@@ -1,6 +1,7 @@
 package com.andersonmesq.autosavi.enums;
 
 public enum ViaAcessoData {
+    UNICA("U"),
     MESMA("M"),
     DIFERENTE("D");
 

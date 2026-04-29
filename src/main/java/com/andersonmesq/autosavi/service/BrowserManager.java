@@ -1,6 +1,8 @@
 package com.andersonmesq.autosavi.service;
 
-import com.andersonmesq.autosavi.driver.DriverFactory;
+import com.andersonmesq.autosavi.factory.DriverFactory;
+import com.andersonmesq.autosavi.enums.Screen;
+import com.andersonmesq.autosavi.utils.SceneManager;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,14 +35,30 @@ public class BrowserManager {
 
     public boolean isBrowserAlive() {
         if (driver == null) return false;
-
         try {
-            driver.getWindowHandle();
+            driver.getTitle();
             return true;
         } catch (Exception e) {
             log.debug("Browser morto detectado");
+            try {
+                driver.quit();
+            } catch (Exception ignored) {}
+            driver = null;
+
             return false;
         }
+    }
+
+    public boolean checkBrowser(Screen screen) {
+        if (!isBrowserAlive()) {
+//            LogMarkers.user(log, "Navegador fechado. Voltando para seleção");
+//            Platform.runLater(() ->
+//                    SceneManager.loadContent("select-site.fxml", screen)
+//            );
+            SceneManager.atualizarStatus("Navegador fechado, clique em \uD83C\uDFE0 para reabrir");
+            return false;
+        }
+        return true;
     }
 
     public void close() {

@@ -1,7 +1,6 @@
 package com.andersonmesq.autosavi;
 
 import com.andersonmesq.autosavi.controller.MainController;
-import com.andersonmesq.autosavi.factory.AppFactory;
 import com.andersonmesq.autosavi.utils.SceneManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +25,7 @@ public class Main extends Application {
         FXMLLoader telaLoader = new FXMLLoader(getClass().getResource("/ui/select-site.fxml"));
         Node tela = telaLoader.load();
 
-        mainController.setContent(tela);
+        mainController.setContent(tela, com.andersonmesq.autosavi.enums.Screen.FILE_CONFIG);
 
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
