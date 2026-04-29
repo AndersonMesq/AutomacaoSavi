@@ -7,10 +7,6 @@ import org.slf4j.LoggerFactory;
 
 public class LeituraPlanilha {
     private static final Logger log = LoggerFactory.getLogger(LeituraPlanilha.class);
-//    public boolean verificacaoCadastro(SeleniumActions selenium) {
-//        String mensagem = selenium.getMensagemPopUp();
-//        return mensagem.contains("Honorário Médico processado com sucesso");
-//    }
 
     public void setCellCadastro(SeleniumActions selenium, Sheet sheet, int i) {
         Row row = sheet.getRow(i);
@@ -22,18 +18,12 @@ public class LeituraPlanilha {
 
         Cell valorCadastro = row.getCell(9, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
 
-//        if (verificacaoCadastro(selenium)) {
-//            valorCadastro.setCellValue("OK");
-//        } else {
-//            valorCadastro.setCellValue("ERRO");
-//        }
-
         if (mensagem.contains("Honorário Médico processado com sucesso")) {
             valorCadastro.setCellValue("OK");
-            System.out.println("Teste do ok");
+            log.debug("Linha {} registrada como cadastro OK", i);
         } else {
             valorCadastro.setCellValue("ERRO");
-            System.out.println("Teste do erro");
+            log.debug("Linha {} registrada como cadastro ERRO", i);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.andersonmesq.autosavi.controller;
 
+import com.andersonmesq.autosavi.enums.Screen;
 import com.andersonmesq.autosavi.factory.AppFactory;
 import com.andersonmesq.autosavi.enums.TipoSite;
 import com.andersonmesq.autosavi.utils.SceneManager;
@@ -29,11 +30,11 @@ public class SelectSiteController {
             log.debug("Site valor null");
             return;
         }
-
+        log.debug("{} selecionado", site);
         new Thread(() -> {
             try {
                 controller.prepare(site);
-                Platform.runLater(() -> SceneManager.loadContent("fileConfig.fxml"));
+                Platform.runLater(() -> SceneManager.loadContent("fileConfig.fxml", Screen.FILE_CONFIG));
             } catch (Exception e) {
                 log.debug("Erro ao iniciar: ", e);
             }

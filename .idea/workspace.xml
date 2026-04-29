@@ -5,43 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa4fdf7-3441-4c4d-a5f7-52bf38419d5d" name="Changes" comment="Adição de loop ao chamar o metodo que trata o popUp, criação de uma classe para ficar com os &quot;relatorios&quot;.">
-      <change afterPath="$PROJECT_DIR$/Anotações.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/BrowserManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/UiAppender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/BrowserClosedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/LogMarkers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ui/main-overlay.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ui/overlay.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/Screen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/TooltipType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/TooltipFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Planilha-modelo.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/andersonmesq/autosavi/PlanilhaGeneratorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/modelo-para-teste.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Planilha modelo.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Planilha modelo.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anotações.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Anotações.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverEdge/msedgedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DriverEdge/msedgedriver.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Planilha modelo.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/actions/SeleniumActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/actions/SeleniumActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/Automacao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/SaviStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/SaviStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/context/AutomationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/context/AutomationContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/AutoConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/AutoConfigController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/AutomationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/AutomationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/FileConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/FileConfigController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/SelectSiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/SelectSiteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/data/AutomacaoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutomacaoData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/driver/DriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/driver/DriverFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/AppFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/AppFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/driver/DriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/DriverFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/ViaAcessoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/ViaAcessoData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/StrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/StrategyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/Planilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/Planilha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/Prestador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/Prestador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutoMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutoMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutomationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutomationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutomacaoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutomacaoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/BrowserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/BrowserManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/LeituraPlanilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/LeituraPlanilha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/strategy/SiteStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/strategy/SiteStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/Relatorio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/BrowserClosedException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/SceneManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ui/autoConfig.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ui/autoConfig.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ui/fileConfig.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ui/fileConfig.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ui/main-overlay.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ui/main-overlay.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +43,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -86,6 +78,8 @@
     &quot;Application.Test01.executor&quot;: &quot;Run&quot;,
     &quot;Application.a.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.PlanilhaGeneratorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlanilhaGeneratorTest.gerarPlanilhaValida.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
@@ -95,6 +89,7 @@
     &quot;git-widget-placeholder&quot;: &quot;Versão-0.5.0-autoSavi&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ander/IdeaProjects/ProjetoAutoSavi/src/main/resources&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/ander/IdeaProjects/ProjetoAutoSavi/src/main/java/org/example/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -103,8 +98,15 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ander\IdeaProjects\ProjetoAutoSavi\src\main\resources" />
+      <recent name="C:\Users\ander\IdeaProjects\ProjetoAutoSavi\src\test\resources\sheetcreated" />
+      <recent name="C:\Users\ander\IdeaProjects\ProjetoAutoSavi\src\test\resources" />
+      <recent name="C:\Users\ander\IdeaProjects\ProjetoAutoSavi\src\test" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ander\IdeaProjects\ProjetoAutoSavi\src\main\resources" />
+      <recent name="C:\Users\ander\IdeaProjects\ProjetoAutoSavi\z-planilhaModelo" />
       <recent name="C:\Users\ander\IdeaProjects\ProjetoAutoSavi\src\main\resources\UI" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -112,7 +114,7 @@
       <recent name="AutoTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.PlanilhaGeneratorTest.gerarPlanilhaValida">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.andersonmesq.autosavi.Main" />
       <module name="ProjetoAutoSavi" />
@@ -133,32 +135,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AutoTest.MainTest" />
-      <module name="ProjetoAutoSavi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.andersonmesq.autosavi.strategy.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TratamentoTest01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AutoTest.TratamentoTest01" />
-      <module name="ProjetoAutoSavi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.andersonmesq.autosavi.strategy.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="a" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AutomacaoSavi.AutoData.a" />
       <module name="ProjetoAutoSavi" />
@@ -172,13 +148,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlanilhaGeneratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjetoAutoSavi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.andersonmesq.autosavi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.andersonmesq.autosavi" />
+      <option name="MAIN_CLASS_NAME" value="com.andersonmesq.autosavi.PlanilhaGeneratorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlanilhaGeneratorTest.gerarPlanilhaValida" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjetoAutoSavi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.andersonmesq.autosavi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.andersonmesq.autosavi" />
+      <option name="MAIN_CLASS_NAME" value="com.andersonmesq.autosavi.PlanilhaGeneratorTest" />
+      <option name="METHOD_NAME" value="gerarPlanilhaValida" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PlanilhaGeneratorTest.gerarPlanilhaValida" />
+        <item itemvalue="JUnit.PlanilhaGeneratorTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.a" />
         <item itemvalue="Application.MainTest (1)" />
-        <item itemvalue="Application.MainTest" />
-        <item itemvalue="Application.TratamentoTest01" />
       </list>
     </recent_temporary>
   </component>

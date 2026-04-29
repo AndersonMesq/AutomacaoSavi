@@ -1,21 +1,28 @@
 package com.andersonmesq.autosavi.controller;
 
+import com.andersonmesq.autosavi.enums.Screen;
 import com.andersonmesq.autosavi.factory.AppFactory;
 import com.andersonmesq.autosavi.context.AutomationContext;
+import com.andersonmesq.autosavi.service.BrowserManager;
 import com.andersonmesq.autosavi.utils.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
 public class FileConfigController {
+    private static final Logger log = LoggerFactory.getLogger(FileConfigController.class);
     private File arquivoSelecionado;
     private boolean planilhaValida = false;
     private AutomationController controller;
+    private BrowserManager browserManager;
 
     public void initialize() {
         controller = AppFactory.getInstance().getAutomationController();
+        browserManager = AppFactory.getInstance().getBrowserManager();
     }
 
     @FXML
@@ -36,10 +43,12 @@ public class FileConfigController {
 
     @FXML
     private void onValidarPlanilha() {
-        controller.checkBrowser();
+        if(!browserManager.checkBrowser(Screen.FILE_CONFIG)){
+            return;
+        }
         AutomationContext automationContext = AppFactory.getInstance().getAutomationContext();
         if (arquivoSelecionado == null) {
-            atualizarStatus("Selecione um arquivo primeiro");
+            SceneManager.atualizarStatus("Selecione um arquivo primeiro");
             return;
         }
         try {
@@ -47,40 +56,38 @@ public class FileConfigController {
             if (planilhaValida) {
                 automationContext.setArquivo(arquivoSelecionado);
             }
-            atualizarStatus(planilhaValida
+            SceneManager.atualizarStatus(planilhaValida
                     ? "Planilha validada com sucesso"
                     : "Planilha fora dos padrões");
 
         } catch (Exception e) {
-            atualizarStatus("Erro ao validar planilha: " + e.getMessage());
-            System.out.println(e.getMessage());
+            SceneManager.atualizarStatus("Erro ao validar planilha: " + e.getMessage());
+            log.debug("Erro ao tentar validar planilha: ", e);
         }
     }
 
     @FXML
     private void onAvancar() {
+        if(!browserManager.checkBrowser(Screen.FILE_CONFIG)){
+            return;
+        }
         if (!planilhaValida) {
-            atualizarStatus("Valide a planilha antes de continuar");
+            SceneManager.atualizarStatus("Valide a planilha antes de continuar");
             return;
         }
-        boolean isCadastro = controller.isTelaCadastro();
-        if (!isCadastro) {
-            atualizarStatus("Você não está na tela de cadastro");
+        if (!controller.isTelaCadastro()) {
+            SceneManager.atualizarStatus("Você não está na tela de cadastro");
             return;
         }
-        SceneManager.loadContent("autoConfig.fxml");
+        SceneManager.loadContent("autoConfig.fxml", Screen.AUTO_CONFIG);
     }
 
     @FXML
     private void onCancelar() {
         controller.cancel();
-        SceneManager.loadContent("autoConfig.fxml");
     }
 
-    @FXML
-    private Label lblStatus;
 
-    private void atualizarStatus(String mensagem) {
-        lblStatus.setText(mensagem);
-    }
+
+
 }

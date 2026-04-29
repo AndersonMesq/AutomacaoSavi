@@ -2,7 +2,6 @@ package com.andersonmesq.autosavi.factory;
 
 import com.andersonmesq.autosavi.actions.SeleniumActions;
 import com.andersonmesq.autosavi.automation.SaviStrategy;
-import com.andersonmesq.autosavi.driver.DriverFactory;
 import com.andersonmesq.autosavi.service.BrowserManager;
 import com.andersonmesq.autosavi.strategy.SiteStrategy;
 import com.andersonmesq.autosavi.enums.TipoSite;

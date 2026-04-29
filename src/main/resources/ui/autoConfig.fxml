@@ -11,23 +11,18 @@
         <Insets top="5" right="5" bottom="5" left="5"/>
     </padding>
 
-    <!-- Seleção de prestador -->
     <HBox spacing="10" alignment="CENTER_LEFT">
         <Label text="Prestador:" />
         <ComboBox fx:id="comboPrestadores" HBox.hgrow="ALWAYS"/>
         <Button text="Atualizar" onAction="#onAtualizarPrestadores"/>
     </HBox>
 
-    <!-- Botões de controle -->
     <HBox spacing="10" alignment="CENTER">
         <Button text="Iniciar" onAction="#onIniciar"/>
         <Button text="Pausar" onAction="#onPausar"/>
         <Button text="Cancelar" onAction="#onCancelar"/>
     </HBox>
 
-
-
-    <!-- Área de log -->
     <VBox spacing="5">
         <Label text="Logs:" />
         <TextArea fx:id="logArea"
@@ -37,10 +32,8 @@
     </VBox>
 
     <HBox spacing="10">
-        <CheckBox fx:id="debugCheckBox" text="Modo debug"/>
-        <Button text="Copiar" onAction="#copiarLog"/>
+        <CheckBox fx:id="debugCheckBox" text="debug"/>
+        <Button text="Copiar" onAction="#copiarLog" styleClass="icon-button"/>
     </HBox>
-
-    <Label fx:id="lblStatus" text="Status..." />
 
 </VBox>

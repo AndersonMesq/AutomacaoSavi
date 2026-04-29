@@ -10,10 +10,7 @@ import com.andersonmesq.autosavi.service.AutomationService;
 import com.andersonmesq.autosavi.factory.StrategyFactory;
 import com.andersonmesq.autosavi.service.BrowserManager;
 import com.andersonmesq.autosavi.strategy.SiteStrategy;
-import com.andersonmesq.autosavi.utils.BrowserClosedException;
 import com.andersonmesq.autosavi.utils.LogMarkers;
-import com.andersonmesq.autosavi.utils.SceneManager;
-import javafx.application.Platform;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -23,9 +20,7 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -47,6 +42,12 @@ public class AutomationController {
         this.saviPage = saviPage;
         this.seleniumActions = seleniumActions;
         this.automationService = automationService;
+    }
+
+    public void prepare(TipoSite site) {
+        strategy = StrategyFactory.create(site, browserManager, seleniumActions);
+        browserManager.ensureBrowser();
+        log.debug("Browser pronto");
     }
 
     public void start(Prestador prestador, AutomationContext automationContext) {
@@ -108,22 +109,6 @@ public class AutomationController {
         }
     }
 
-    public void checkBrowser(){
-        if (!browserManager.isBrowserAlive()) {
-            LogMarkers.user(log, "Navegador fechado. Voltando para seleção");
-            Platform.runLater(() ->
-                    SceneManager.loadContent("select-site.fxml")
-            );
-        }
-        throw new BrowserClosedException();
-    }
-
-    public void prepare(TipoSite site) {
-        strategy = StrategyFactory.create(site, browserManager, seleniumActions);
-        browserManager.ensureBrowser();
-        log.debug("Browser pronto");
-    }
-
     public boolean sheetValidation(File arquivo) {
         try (FileInputStream fis = new FileInputStream(arquivo);
              Workbook workbook = new XSSFWorkbook(fis)) {
@@ -131,7 +116,7 @@ public class AutomationController {
             Sheet sheet = workbook.getSheetAt(0);
             Row cabecalho = sheet.getRow(0);
 
-            java.util.List<String> colunasObrigatorias = Arrays.asList("senha", "quantidade", "tipoAto", "data",
+            List<String> colunasObrigatorias = Arrays.asList("senha", "quantidade", "tipoAto", "data",
                     "hora", "viaAcesso", "valor", "OBS", "mensagem", "cadastro");
             Map<String, Integer> colunas = new HashMap<>();
 
@@ -157,6 +142,15 @@ public class AutomationController {
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    public void salvarLog(String caminho, String conteudo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminho, true))) {
+            writer.write(conteudo);
+            writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

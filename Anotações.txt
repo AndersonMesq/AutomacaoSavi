@@ -4,9 +4,5 @@
 log.info(LogMarkers.USER, "Erro ao tratar popup");
 LogMarkers.user(log, xxxxxxxxxxxx);
 
-- Log ou algum tipo de arquivo gerado mostre o valor total cadastrado pela automação
 - Pasta com logs salvos que apague logs antigos apos uma certa quantidade
-- Ajeitar botão de cancelamento
-- Botar um botão para voltar ao inicio
-- Testes
 
