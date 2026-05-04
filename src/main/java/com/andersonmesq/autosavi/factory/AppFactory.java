@@ -3,13 +3,13 @@ package com.andersonmesq.autosavi.factory;
 import com.andersonmesq.autosavi.actions.SeleniumActions;
 import com.andersonmesq.autosavi.context.AutomationContext;
 import com.andersonmesq.autosavi.controller.AutomationController;
-import com.andersonmesq.autosavi.service.AutomacaoData;
+import com.andersonmesq.autosavi.service.AutomationData;
 import com.andersonmesq.autosavi.model.Planilha;
 import com.andersonmesq.autosavi.pages.SaviPage;
 import com.andersonmesq.autosavi.service.AutoMaster;
 import com.andersonmesq.autosavi.service.AutomationService;
 import com.andersonmesq.autosavi.service.BrowserManager;
-import com.andersonmesq.autosavi.service.LeituraPlanilha;
+import com.andersonmesq.autosavi.service.PlanilhaService;
 
 public class AppFactory {
 
@@ -18,10 +18,10 @@ public class AppFactory {
     private final AutomationController automationController;
     private final BrowserManager browserManager;
     private final SeleniumActions seleniumActions;
-    private final LeituraPlanilha leituraPlanilha;
+    private final PlanilhaService leituraPlanilha;
     private final AutomationService automationService;
     private Planilha planilha;
-    private AutomacaoData automacaoData;
+    private AutomationData automacaoData;
     private AutomationContext automationContext;
     private AutoMaster autoMaster;
     private SaviPage saviPage;
@@ -33,8 +33,8 @@ public class AppFactory {
         this.seleniumActions = new SeleniumActions();
         this.saviPage = new SaviPage();
         this.planilha = new Planilha();
-        this.leituraPlanilha = new LeituraPlanilha();
-        this.automacaoData = new AutomacaoData();
+        this.leituraPlanilha = new PlanilhaService();
+        this.automacaoData = new AutomationData();
         this.automationContext = new AutomationContext();
 
         this.autoMaster = new AutoMaster(planilha, leituraPlanilha, automacaoData, seleniumActions);
@@ -49,10 +49,6 @@ public class AppFactory {
 
     public AutomationController getAutomationController() {
         return automationController;
-    }
-
-    public AutomationService getAutomationService() {
-        return automationService;
     }
 
     public AutomationContext getAutomationContext() {

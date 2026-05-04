@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <appender name="UI" class="com.andersonmesq.autosavi.service.UiAppender"/>
+    <appender name="UI" class="com.andersonmesq.autosavi.utils.UiAppender"/>
 
     <root level="DEBUG">
         <appender-ref ref="CONSOLE"/>

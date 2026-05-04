@@ -29,7 +29,7 @@ public class FileConfigController {
     private Label lblArquivo;
 
     @FXML
-    private void onSelecionarArquivo() {
+    private void onSelectFile() {
         FileChooser chooser = new FileChooser();
         chooser.getExtensionFilters().add(
                 new FileChooser.ExtensionFilter("Excel", "*.xlsx")
@@ -42,13 +42,13 @@ public class FileConfigController {
     }
 
     @FXML
-    private void onValidarPlanilha() {
-        if(!browserManager.checkBrowser(Screen.FILE_CONFIG)){
+    private void onValidateSheet() {
+        if(!browserManager.checkBrowser()){
             return;
         }
         AutomationContext automationContext = AppFactory.getInstance().getAutomationContext();
         if (arquivoSelecionado == null) {
-            SceneManager.atualizarStatus("Selecione um arquivo primeiro");
+            SceneManager.statusUpdate("Selecione um arquivo primeiro");
             return;
         }
         try {
@@ -56,34 +56,34 @@ public class FileConfigController {
             if (planilhaValida) {
                 automationContext.setArquivo(arquivoSelecionado);
             }
-            SceneManager.atualizarStatus(planilhaValida
+            SceneManager.statusUpdate(planilhaValida
                     ? "Planilha validada com sucesso"
                     : "Planilha fora dos padrões");
 
         } catch (Exception e) {
-            SceneManager.atualizarStatus("Erro ao validar planilha: " + e.getMessage());
+            SceneManager.statusUpdate("Erro ao validar planilha: " + e.getMessage());
             log.debug("Erro ao tentar validar planilha: ", e);
         }
     }
 
     @FXML
-    private void onAvancar() {
-        if(!browserManager.checkBrowser(Screen.FILE_CONFIG)){
+    private void onAdvance() {
+        if(!browserManager.checkBrowser()){
             return;
         }
         if (!planilhaValida) {
-            SceneManager.atualizarStatus("Valide a planilha antes de continuar");
+            SceneManager.statusUpdate("Valide a planilha antes de continuar");
             return;
         }
         if (!controller.isTelaCadastro()) {
-            SceneManager.atualizarStatus("Você não está na tela de cadastro");
+            SceneManager.statusUpdate("Você não está na tela de cadastro");
             return;
         }
         SceneManager.loadContent("autoConfig.fxml", Screen.AUTO_CONFIG);
     }
 
     @FXML
-    private void onCancelar() {
+    private void onCancel() {
         controller.cancel();
     }
 

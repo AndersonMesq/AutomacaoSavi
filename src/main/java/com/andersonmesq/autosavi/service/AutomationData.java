@@ -1,14 +1,14 @@
 package com.andersonmesq.autosavi.service;
 
 import com.andersonmesq.autosavi.model.Planilha;
-import com.andersonmesq.autosavi.enums.TipoAtoData;
+import com.andersonmesq.autosavi.enums.TypeAtoData;
 import com.andersonmesq.autosavi.enums.ViaAcessoData;
 import org.apache.poi.ss.usermodel.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class AutomacaoData {
+public class AutomationData {
     public void planilhaSetters(Planilha planilha, DataFormatter formatter, String colunaNome, Cell cell) {
         switch (colunaNome) {
             case "senha" -> {
@@ -23,7 +23,7 @@ public class AutomacaoData {
 
             case "tipoAto" -> {
                 String valorTipoAto = formatter.formatCellValue(cell);
-                planilha.setTipoAto(TipoAtoData.fromExcel(valorTipoAto));
+                planilha.setTipoAto(TypeAtoData.fromExcel(valorTipoAto));
             }
 
             case "data" -> {

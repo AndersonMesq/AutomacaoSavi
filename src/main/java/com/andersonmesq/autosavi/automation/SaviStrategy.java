@@ -32,7 +32,9 @@ public class SaviStrategy implements SiteStrategy {
 
     @Override
     public List<Prestador> loadPrestadores() {
-        saviPage = new SaviPage();
+        if(saviPage == null){
+            saviPage = new SaviPage();
+        }
         Map<String, String> mapa = extractPrestadores(browserManager, saviPage);
 
         List<Prestador> lista = new ArrayList<>();

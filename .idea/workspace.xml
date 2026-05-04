@@ -5,32 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa4fdf7-3441-4c4d-a5f7-52bf38419d5d" name="Changes" comment="Adição de loop ao chamar o metodo que trata o popUp, criação de uma classe para ficar com os &quot;relatorios&quot;.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/Screen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/TooltipType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/TooltipFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Planilha-modelo.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/andersonmesq/autosavi/PlanilhaGeneratorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/modelo-para-teste.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anotações.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Anotações.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverEdge/msedgedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DriverEdge/msedgedriver.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Planilha modelo.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/actions/SeleniumActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/actions/SeleniumActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/PortalStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/PortalStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/SaviStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/automation/SaviStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/AutoConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/AutoConfigController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/AutomationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/AutomationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/FileConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/FileConfigController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/SelectSiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/controller/SelectSiteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/driver/DriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/DriverFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/ViaAcessoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/ViaAcessoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/TipoAtoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/enums/TypeAtoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/AppFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/AppFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/DriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/DriverFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/StrategyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/factory/StrategyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutomacaoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutomacaoData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/Planilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/model/Planilha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutoMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutoMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutomacaoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/AutomationData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/BrowserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/BrowserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/LeituraPlanilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/LeituraPlanilha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/BrowserClosedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/LeituraPlanilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/PlanilhaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/UiAppender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/UiAppender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/service/Verificacoes.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andersonmesq/autosavi/utils/SceneManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/DriverEdge/msedgedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Drivers/msedgedriver.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ui/autoConfig.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ui/autoConfig.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ui/fileConfig.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ui/fileConfig.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ui/main-overlay.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ui/main-overlay.fxml" afterDir="false" />
@@ -86,7 +82,7 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Versão-0.5.0-autoSavi&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;AutoSavi&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/ander/IdeaProjects/ProjetoAutoSavi/src/main/resources&quot;,

@@ -1,7 +1,6 @@
 package com.andersonmesq.autosavi.service;
 
 import com.andersonmesq.autosavi.factory.DriverFactory;
-import com.andersonmesq.autosavi.enums.Screen;
 import com.andersonmesq.autosavi.utils.SceneManager;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -49,13 +48,9 @@ public class BrowserManager {
         }
     }
 
-    public boolean checkBrowser(Screen screen) {
+    public boolean checkBrowser() {
         if (!isBrowserAlive()) {
-//            LogMarkers.user(log, "Navegador fechado. Voltando para seleção");
-//            Platform.runLater(() ->
-//                    SceneManager.loadContent("select-site.fxml", screen)
-//            );
-            SceneManager.atualizarStatus("Navegador fechado, clique em \uD83C\uDFE0 para reabrir");
+            SceneManager.statusUpdate("Navegador fechado, clique em \uD83C\uDFE0 para reabrir");
             return false;
         }
         return true;

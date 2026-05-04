@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SeleniumActions {
     private static final Logger log = LoggerFactory.getLogger(SeleniumActions.class);
-    private String mensagemPopUp;
+    private String messagePopUp;
 
     public static void startDelay() {
         try {
@@ -23,11 +23,13 @@ public class SeleniumActions {
         }
     }
 
+    // Wait for the page to reload and update the DOM
     public void waitForDomUpdate(WebDriver driver, By observer) {
         WebElement element = driver.findElement(observer);
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.stalenessOf(element));
     }
 
+    // Reads and handles the popup based on its message
     public void popUpTratament(WebDriver driver, By textPopUp, By buttonPopUp) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         for (int i = 1; i <= 5; i++) {
@@ -53,17 +55,22 @@ public class SeleniumActions {
                     String msgText = msg.getText();
                     if (!msgText.isEmpty()) {
                         LogMarkers.user(log, "Mensagem lida: {}", msgText);
-                        setMensagemPopUp(msgText);
+                        setMessagePopUp(msgText);
                         break;
                     }
                 }
                 WebElement botaoFechar = wait.until(ExpectedConditions.elementToBeClickable(buttonPopUp));
                 botaoFechar.click();
                 return;
-            } catch (Exception e) {
+            } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
+                LogMarkers.user(log, "Tratamento do popup interrompido");
+                return;
+            } catch (TimeoutException e) {
+                LogMarkers.user(log, "Erro ao tratar popup", e.getMessage());
+            } catch (Exception e) {
                 LogMarkers.user(log, "Erro ao tratar popup: ", e.getMessage());
-                log.debug("Erro ao tratar popup: ", e);
+                log.debug("Erro ao tentar tratar popup: ", e);
             }
         }
     }
@@ -103,11 +110,11 @@ public class SeleniumActions {
         }
     }
 
-    public void setMensagemPopUp(String mensagemPopUp) {
-        this.mensagemPopUp = mensagemPopUp;
+    public void setMessagePopUp(String messagePopUp) {
+        this.messagePopUp = messagePopUp;
     }
 
-    public String getMensagemPopUp() {
-        return mensagemPopUp;
+    public String getMessagePopUp() {
+        return messagePopUp;
     }
 }
