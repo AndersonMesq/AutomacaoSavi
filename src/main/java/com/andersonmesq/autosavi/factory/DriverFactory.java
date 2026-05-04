@@ -10,16 +10,6 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
 public class DriverFactory {
-//    public WebDriver createEdge() {
-//        System.setProperty("webdriver.edge.driver", "C:\\Users\\ander\\IdeaProjects\\ProjetoAutoSavi\\src\\main\\resources\\Drivers\\msedgedriver.exe");
-//
-//        EdgeOptions options = new EdgeOptions();
-//        options.setExperimentalOption("detach", false);
-//        options.addArguments("--start-maximized");
-//
-//        return new EdgeDriver(options);
-//    }
-
     public WebDriver createEdge() {
         String driverPath = extractDriver();
 

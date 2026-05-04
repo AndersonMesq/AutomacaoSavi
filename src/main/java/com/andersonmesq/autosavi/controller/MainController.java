@@ -82,7 +82,7 @@ public class MainController {
                 new FileChooser.ExtensionFilter("Excel (*.xlsx)", "*.xlsx")
         );
 
-        fileChooser.setInitialFileName("Planilha-modelo.xlsx");
+        fileChooser.setInitialFileName("template/Planilha-modelo.xlsx");
 
         if (downloadsDir.exists()) {
             fileChooser.setInitialDirectory(downloadsDir);
@@ -112,7 +112,7 @@ public class MainController {
     }
 
     private void copyTemplateFor(File destino) {
-        try (InputStream is = getClass().getResourceAsStream("/Planilha-modelo.xlsx");
+        try (InputStream is = getClass().getResourceAsStream("/template/Planilha-modelo.xlsx");
              FileOutputStream fos = new FileOutputStream(destino)) {
 
             if (is == null) {
