@@ -16,6 +16,7 @@ public class BrowserManager {
             driver = factory.createEdge();
             driver.get("https://saviatendimento.com.br/saviatendimento/login.faces");
         } catch (Exception e) {
+            SceneManager.statusUpdate("Erro ao tentar abrir o navegador: " + e.getMessage());
             log.debug("Erro ao tentar abrir navegador: ", e);
         }
     }
