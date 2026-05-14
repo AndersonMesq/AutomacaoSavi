@@ -21,15 +21,15 @@ public class SceneManager {
 
             mainController.setContent(node, screen);
 
-            atualizarStatus("...");
+            statusUpdate("...");
         } catch (IOException e) {
             log.debug("Erro ao executar loadContent(SceneManager): ", e);
         }
     }
 
-    public static void atualizarStatus(String mensagem) {
+    public static void statusUpdate(String mensagem) {
         if (mainController != null) {
-            Platform.runLater(() -> mainController.atualizarStatus(mensagem));
+            Platform.runLater(() -> mainController.statusUpdate(mensagem));
         }
     }
 

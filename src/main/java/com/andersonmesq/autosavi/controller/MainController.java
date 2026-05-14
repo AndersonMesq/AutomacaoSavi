@@ -71,7 +71,7 @@ public class MainController {
     private Label lblStatus;
 
     @FXML
-    private void onGerarPlanilhaModelo() {
+    private void onGenerateTemplateSheet() {
         String userHome = System.getProperty("user.home");
         File downloadsDir = new File(userHome, "Downloads");
 
@@ -82,7 +82,7 @@ public class MainController {
                 new FileChooser.ExtensionFilter("Excel (*.xlsx)", "*.xlsx")
         );
 
-        fileChooser.setInitialFileName("Planilha-modelo.xlsx");
+        fileChooser.setInitialFileName("resources/template/Planilha-modelo.xlsx");
 
         if (downloadsDir.exists()) {
             fileChooser.setInitialDirectory(downloadsDir);
@@ -92,7 +92,7 @@ public class MainController {
         File file = fileChooser.showSaveDialog(stage);
 
         if (file != null) {
-            copiarTemplatePara(file);
+            copyTemplateFor(file);
 
             try {
                 Desktop.getDesktop().open(file.getParentFile());
@@ -102,7 +102,7 @@ public class MainController {
         }
     }
 
-    public void atualizarStatus(String mensagem) {
+    public void statusUpdate(String mensagem) {
         lblStatus.setText(mensagem);
     }
 
@@ -111,8 +111,8 @@ public class MainController {
         this.currentScreen = screen;
     }
 
-    private void copiarTemplatePara(File destino) {
-        try (InputStream is = getClass().getResourceAsStream("/Planilha-modelo.xlsx");
+    private void copyTemplateFor(File destino) {
+        try (InputStream is = getClass().getResourceAsStream("/resources/template/Planilha-modelo.xlsx");
              FileOutputStream fos = new FileOutputStream(destino)) {
 
             if (is == null) {
@@ -121,10 +121,10 @@ public class MainController {
 
             is.transferTo(fos);
 
-            SceneManager.atualizarStatus("Planilha modelo salva com sucesso!");
+            SceneManager.statusUpdate("Planilha modelo salva com sucesso!");
 
         } catch (IOException e) {
-            SceneManager.atualizarStatus("Erro ao salvar planilha modelo");
+            SceneManager.statusUpdate("Erro ao salvar planilha modelo");
             log.debug("Erro ao tentar criar copia da planilha modelo: ", e);
         }
     }

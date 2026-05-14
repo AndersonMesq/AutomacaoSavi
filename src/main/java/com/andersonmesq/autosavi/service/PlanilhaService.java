@@ -5,12 +5,12 @@ import org.apache.poi.ss.usermodel.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LeituraPlanilha {
-    private static final Logger log = LoggerFactory.getLogger(LeituraPlanilha.class);
+public class PlanilhaService {
+    private static final Logger log = LoggerFactory.getLogger(PlanilhaService.class);
 
     public void setCellCadastro(SeleniumActions selenium, Sheet sheet, int i) {
         Row row = sheet.getRow(i);
-        String mensagem = selenium.getMensagemPopUp();
+        String mensagem = selenium.getMessagePopUp();
         if (row == null) return;
 
         Cell primeiraCelula = row.getCell(0, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
@@ -33,7 +33,7 @@ public class LeituraPlanilha {
 
         Cell valorMensagem = row.getCell(8, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
 
-        valorMensagem.setCellValue(selenium.getMensagemPopUp());
+        valorMensagem.setCellValue(selenium.getMessagePopUp());
     }
 
     public static boolean checkCadastro(Sheet sheet, DataFormatter formatter, int i) {

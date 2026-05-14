@@ -7,7 +7,6 @@ import com.andersonmesq.autosavi.strategy.SiteStrategy;
 import com.andersonmesq.autosavi.enums.TipoSite;
 
 public class StrategyFactory {
-    DriverFactory driverFactory = new DriverFactory();
 
     public static SiteStrategy create(TipoSite site, BrowserManager browserManager, SeleniumActions selenium) {
         switch (site) {

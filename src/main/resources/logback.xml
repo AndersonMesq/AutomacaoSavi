@@ -1,14 +1,57 @@
+<!--<configuration>-->
+<!--    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--        <encoder>-->
+<!--            <pattern>%d{HH:mm:ss} [%level] %msg%n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+<!--    <appender name="UI" class="com.andersonmesq.autosavi.utils.UiAppender"/>-->
+
+<!--    <root level="DEBUG">-->
+<!--        <appender-ref ref="CONSOLE"/>-->
+<!--        <appender-ref ref="UI"/>-->
+<!--    </root>-->
+<!--</configuration>-->
+
 <configuration>
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+
+    <timestamp key="CURRENT_TIME"
+               datePattern="yyyy-MM-dd_HH-mm-ss"/>
+
+    <property name="LOG_DIR"
+              value="${LOCALAPPDATA}/AutoSavi/logs"/>
+
+    <appender name="CONSOLE"
+              class="ch.qos.logback.core.ConsoleAppender">
+
         <encoder>
             <pattern>%d{HH:mm:ss} [%level] %msg%n</pattern>
         </encoder>
+
     </appender>
 
-    <appender name="UI" class="com.andersonmesq.autosavi.service.UiAppender"/>
+    <appender name="FILE"
+              class="ch.qos.logback.core.FileAppender">
+
+        <file>
+            ${LOG_DIR}/debug-${CURRENT_TIME}.log
+        </file>
+
+        <append>true</append>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%level] %msg%n</pattern>
+        </encoder>
+
+    </appender>
+
+    <appender name="UI"
+              class="com.andersonmesq.autosavi.utils.UiAppender"/>
 
     <root level="DEBUG">
         <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
         <appender-ref ref="UI"/>
     </root>
+
 </configuration>

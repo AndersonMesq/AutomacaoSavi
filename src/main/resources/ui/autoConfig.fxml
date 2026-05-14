@@ -14,13 +14,13 @@
     <HBox spacing="10" alignment="CENTER_LEFT">
         <Label text="Prestador:" />
         <ComboBox fx:id="comboPrestadores" HBox.hgrow="ALWAYS"/>
-        <Button text="Atualizar" onAction="#onAtualizarPrestadores"/>
+        <Button text="Atualizar" onAction="#onLoadPrestadores"/>
     </HBox>
 
     <HBox spacing="10" alignment="CENTER">
-        <Button text="Iniciar" onAction="#onIniciar"/>
-        <Button text="Pausar" onAction="#onPausar"/>
-        <Button text="Cancelar" onAction="#onCancelar"/>
+        <Button text="Iniciar" onAction="#onStart"/>
+        <Button text="Pausar" onAction="#onPause"/>
+        <Button text="Cancelar" onAction="#onCancel"/>
     </HBox>
 
     <VBox spacing="5">
@@ -33,7 +33,7 @@
 
     <HBox spacing="10">
         <CheckBox fx:id="debugCheckBox" text="debug"/>
-        <Button text="Copiar" onAction="#copiarLog" styleClass="icon-button"/>
+        <Button text="Copiar" onAction="#copyLog" styleClass="icon-button"/>
     </HBox>
 
 </VBox>

@@ -145,16 +145,7 @@ public class AutomationController {
         }
     }
 
-    public void salvarLog(String caminho, String conteudo) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminho, true))) {
-            writer.write(conteudo);
-            writer.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public List<Prestador> carregarPrestadores() {
+    public List<Prestador> loadPrestadores() {
         return strategy.loadPrestadores();
     }
 

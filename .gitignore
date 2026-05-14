@@ -1,6 +1,10 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
+
+### Arquivos especificos ###
 Anotações.txt
+dependency-reduced-pom.xml
+/runtime/
 
 ### IntelliJ IDEA ###
 .idea

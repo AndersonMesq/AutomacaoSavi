@@ -15,16 +15,16 @@
     <HBox spacing="10" alignment="CENTER_LEFT">
         <Label text="Arquivo:" />
         <Label fx:id="lblArquivo" text="Nenhum arquivo selecionado" />
-        <Button text="Selecionar" onAction="#onSelecionarArquivo"/>
+        <Button text="Selecionar" onAction="#onSelectFile"/>
     </HBox>
 
     <!-- Botão validar -->
-    <Button text="Validar Planilha" onAction="#onValidarPlanilha"/>
+    <Button text="Validar Planilha" onAction="#onValidateSheet"/>
 
     <!-- Botões inferiores -->
     <HBox spacing="10" alignment="CENTER">
-        <Button text="Avançar" onAction="#onAvancar"/>
-        <Button text="Cancelar" onAction="#onCancelar"/>
+        <Button text="Avançar" onAction="#onAdvance"/>
+        <Button text="Cancelar" onAction="#onCancel"/>
     </HBox>
 
 </VBox>

@@ -23,12 +23,12 @@ import static com.andersonmesq.autosavi.enums.AutomationState.*;
 public class AutoMaster {
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(AutoMaster.class);
     private final Planilha planilha;
-    private final LeituraPlanilha leituraPlanilha;
-    private final AutomacaoData automacaoData;
+    private final PlanilhaService leituraPlanilha;
+    private final AutomationData automacaoData;
     private final SeleniumActions seleniumActions;
     private AutomationController controller;
 
-    public AutoMaster(Planilha planilha, LeituraPlanilha leituraPlanilha, AutomacaoData automacaoData, SeleniumActions seleniumActions) {
+    public AutoMaster(Planilha planilha, PlanilhaService leituraPlanilha, AutomationData automacaoData, SeleniumActions seleniumActions) {
         this.planilha = planilha;
         this.leituraPlanilha = leituraPlanilha;
         this.automacaoData = automacaoData;
@@ -57,7 +57,7 @@ public class AutoMaster {
                 if (linha == null) {
                     break;
                 }
-                if (LeituraPlanilha.checkCadastro(sheet, formatter, i)) {
+                if (PlanilhaService.checkCadastro(sheet, formatter, i)) {
                     LogMarkers.user(log, "**************************\nLinha {} com cadastro OK\n**************************", i);
                     continue;
                 }
@@ -86,6 +86,8 @@ public class AutoMaster {
             }
             try (FileOutputStream fos = new FileOutputStream(automationContext.getArquivo())) {
                 workbook.write(fos);
+            } catch (IOException e){
+                log.debug("Erro ao salvar planilha: ", e);
             }
             controller.setState(FINISHED);
         } catch (IOException e) {

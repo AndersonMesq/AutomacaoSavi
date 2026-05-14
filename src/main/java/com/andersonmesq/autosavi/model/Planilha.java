@@ -1,6 +1,6 @@
 package com.andersonmesq.autosavi.model;
 
-import com.andersonmesq.autosavi.enums.TipoAtoData;
+import com.andersonmesq.autosavi.enums.TypeAtoData;
 import com.andersonmesq.autosavi.enums.ViaAcessoData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +12,7 @@ public class Planilha {
     private static final Logger log = LoggerFactory.getLogger(Planilha.class);
     private String senha;
     private int quantidade;
-    private TipoAtoData tipoAto;
+    private TypeAtoData tipoAto;
     private LocalDate data;
     private String hora;
     private ViaAcessoData viaAcesso;
@@ -49,11 +49,11 @@ public class Planilha {
         this.quantidade = quantidade;
     }
 
-    public TipoAtoData getTipoAto() {
+    public TypeAtoData getTipoAto() {
         return tipoAto;
     }
 
-    public void setTipoAto(TipoAtoData tipoAto) {
+    public void setTipoAto(TypeAtoData tipoAto) {
         this.tipoAto = tipoAto;
     }
 

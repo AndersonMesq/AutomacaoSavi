@@ -1,11 +1,10 @@
 package com.andersonmesq.autosavi.controller;
 
-import com.andersonmesq.autosavi.enums.Screen;
 import com.andersonmesq.autosavi.factory.AppFactory;
 import com.andersonmesq.autosavi.context.AutomationContext;
 import com.andersonmesq.autosavi.model.Prestador;
 import com.andersonmesq.autosavi.service.BrowserManager;
-import com.andersonmesq.autosavi.service.UiAppender;
+import com.andersonmesq.autosavi.utils.UiAppender;
 import com.andersonmesq.autosavi.utils.SceneManager;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -39,22 +38,22 @@ public class AutoConfigController {
     private ComboBox<Prestador> comboPrestadores;
 
     @FXML
-    private void onAtualizarPrestadores() {
-        if(!browserManager.checkBrowser(Screen.AUTO_CONFIG)){
+    private void onLoadPrestadores() {
+        if(!browserManager.checkBrowser()){
             return;
         }
-        SceneManager.atualizarStatus("Carregando prestadores");
+        SceneManager.statusUpdate("Carregando prestadores");
 
         new Thread(() -> {
             try {
-                List<Prestador> lista = controller.carregarPrestadores();
+                List<Prestador> lista = controller.loadPrestadores();
                 Platform.runLater(() -> {
                     comboPrestadores.getItems().setAll(lista);
-                    SceneManager.atualizarStatus("Prestadores carregados");
+                    SceneManager.statusUpdate("Prestadores carregados");
                 });
             } catch (Exception e) {
                 Platform.runLater(() -> {
-                    SceneManager.atualizarStatus("Erro ao carregar prestadores");
+                    SceneManager.statusUpdate("Erro ao carregar prestadores");
                     log.debug("Erro ao tentar carregar prestadores: ", e);
                 });
             }
@@ -62,30 +61,30 @@ public class AutoConfigController {
     }
 
     @FXML
-    private void onIniciar() {
-        if(!browserManager.checkBrowser(Screen.AUTO_CONFIG)){
+    private void onStart() {
+        if(!browserManager.checkBrowser()){
             return;
         }
         Prestador prestador = comboPrestadores.getValue();
         if (prestador == null) {
-            SceneManager.atualizarStatus("Selecione um prestador");
+            SceneManager.statusUpdate("Selecione um prestador");
             return;
         }
         controller.start(prestador, automationContext);
     }
 
     @FXML
-    private void onPausar() {
-        if(!browserManager.checkBrowser(Screen.AUTO_CONFIG)){
+    private void onPause() {
+        if(!browserManager.checkBrowser()){
             return;
         }
-        SceneManager.atualizarStatus("Automação pausada");
+        SceneManager.statusUpdate("Automação pausada");
         controller.pause();
     }
 
     @FXML
-    private void onCancelar() {
-        if(!browserManager.checkBrowser(Screen.AUTO_CONFIG)){
+    private void onCancel() {
+        if(!browserManager.checkBrowser()){
             return;
         }
         controller.cancel();
@@ -98,7 +97,7 @@ public class AutoConfigController {
     private CheckBox debugCheckBox;
 
     @FXML
-    private void copiarLog() {
+    private void copyLog() {
         String logCompleto = UiAppender.getFullLog();
         ClipboardContent content = new ClipboardContent();
         content.putString(logCompleto);
